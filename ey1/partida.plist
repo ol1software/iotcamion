@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>vcamionenautopista</key>
+	<false/>
+	<key>idviaje</key>
+	<string></string>
+	<key>dinero</key>
+	<integer>0</integer>
+	<key>idciudad</key>
+	<string></string>
+	<key>gasolina</key>
+	<integer>0</integer>
+	<key>estado</key>
+	<integer>0</integer>
+	<key>origen</key>
+	<string></string>
+	<key>destino</key>
+	<string></string>
+	<key>posicionactual</key>
+	<string></string>
+	<key>ciudadactual</key>
+	<string></string>
+	<key>nombrejugador</key>
+	<string>pepe</string>
+</dict>
+</plist>

@@ -17,6 +17,7 @@
 		236D477D255F21EB00268216 /* nj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236D477C255F21EA00268216 /* nj.gif */; };
 		236DDEA42555CDDA0091942C /* carga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA32555CDD90091942C /* carga.jpg */; };
 		236DDEA62555CDE60091942C /* descarga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA52555CDE60091942C /* descarga.jpg */; };
+		23A7C0D52561989800682FDE /* partida2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23A7C0D42561989800682FDE /* partida2.plist */; };
 		23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB0412541DB0A0065BFFB /* Main.storyboard */; };
 		23B1F14C254413F000E49582 /* mini18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23B1F14B254413EF00E49582 /* mini18.jpg */; };
 		23BCB03E2541DB0A0065BFFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB03D2541DB0A0065BFFB /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 		23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB0442541DB0A0065BFFB /* LaunchScreen.storyboard */; };
 		23BCB0512541DB0A0065BFFB /* ey1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB0502541DB0A0065BFFB /* ey1Tests.swift */; };
 		23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */; };
+		23D7542A25614F4500ED23D2 /* partida.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23D7542925614F4500ED23D2 /* partida.plist */; };
 		23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23E7CD6925593591000D28A4 /* mapaspain.jpg */; };
 		23FA2C57255B2EAF00F4737D /* ViewControllerGAMEOVER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */; };
 		23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5A255B3A4C00F4737D /* Cj.gif */; };
@@ -60,6 +62,7 @@
 		236D477C255F21EA00268216 /* nj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nj.gif; path = 2/nj.gif; sourceTree = "<group>"; };
 		236DDEA32555CDD90091942C /* carga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carga.jpg; sourceTree = "<group>"; };
 		236DDEA52555CDE60091942C /* descarga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = descarga.jpg; sourceTree = "<group>"; };
+		23A7C0D42561989800682FDE /* partida2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida2.plist; sourceTree = "<group>"; };
 		23B1F14B254413EF00E49582 /* mini18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mini18.jpg; sourceTree = "<group>"; };
 		23BCB03A2541DB0A0065BFFB /* ey1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ey1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BCB03D2541DB0A0065BFFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		23BCB0572541DB0A0065BFFB /* ey1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ey1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ey1UITests.swift; sourceTree = "<group>"; };
 		23BCB05D2541DB0A0065BFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23D7542925614F4500ED23D2 /* partida.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida.plist; sourceTree = "<group>"; };
 		23E7CD6925593591000D28A4 /* mapaspain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mapaspain.jpg; sourceTree = "<group>"; };
 		23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGAMEOVER.swift; sourceTree = "<group>"; };
 		23FA2C5A255B3A4C00F4737D /* Cj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cj.gif; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				23B1F14B254413EF00E49582 /* mini18.jpg */,
 				23BCB03D2541DB0A0065BFFB /* AppDelegate.swift */,
 				23BCB03F2541DB0A0065BFFB /* ViewController.swift */,
+				23D7542925614F4500ED23D2 /* partida.plist */,
+				23A7C0D42561989800682FDE /* partida2.plist */,
 				23BCB0412541DB0A0065BFFB /* Main.storyboard */,
 				23BCB0442541DB0A0065BFFB /* LaunchScreen.storyboard */,
 				23BCB0472541DB0A0065BFFB /* Info.plist */,
@@ -288,6 +294,7 @@
 				23FA2C63255B3BC800F4737D /* logow.jpg in Resources */,
 				23FA2C5D255B3A5F00F4737D /* madrid.jpg in Resources */,
 				23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */,
+				23A7C0D52561989800682FDE /* partida2.plist in Resources */,
 				231E8FBB254D4D04001901DD /* alcantarilla.jpg in Resources */,
 				23FA2C60255B3A7800F4737D /* viajec.jpg in Resources */,
 				236D477D255F21EB00268216 /* nj.gif in Resources */,
@@ -295,6 +302,7 @@
 				231E8FB8254D4CDF001901DD /* rarroz.jpg in Resources */,
 				23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */,
 				234D38F42558204100922DC6 /* firma.jpg in Resources */,
+				23D7542A25614F4500ED23D2 /* partida.plist in Resources */,
 				231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */,
 				23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */,
 				231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */,

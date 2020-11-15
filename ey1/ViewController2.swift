@@ -22,12 +22,20 @@ class ViewController2: UIViewController {
     
     @IBOutlet weak var cartelMSG: UITextView!
     
-
+    @IBOutlet weak var texto: UITextView!
+    
+    
     
 let defaults = UserDefaults.standard
     var gameover: Bool? = false
     var r: String? = "-"
     var nombrejugador: String = "Jhon"
+    
+    @IBAction func b(_ sender: Any) {
+        var r: String
+        r = defaults.string(forKey: "nombrejugador")!
+        texto.text = r
+    }
 
     
     // NUEVO JUEGO

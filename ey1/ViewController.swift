@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
 
@@ -69,6 +71,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonContratarViaje: UIButton!
     
     @IBOutlet weak var cartelmensaje: UISegmentedControl!
+    
+    @IBOutlet weak var cartelinfo: UITextView!
+    
+    @IBOutlet weak var diatexto: UITextField!
+    
+    
+    
+    @IBAction func guarda(_ sender: Any) {
+
+    }
+    
+    
+
+    
+    @IBAction func save1(_ sender: Any)
+    {
+ 
+        cartelinfo.text  = "nom="+defaults.string(forKey: "dinero")!
+nombrecamiontxt?.text = "nom="
+    }
+    
+    func Guardar()
+    {
+
+       }
+    
     
     func Muestrainformacion(titulo: String)
     {
@@ -148,9 +176,9 @@ class ViewController: UIViewController {
     
     //    eti_nombre.text = Jugador[0].nombrejugador
     struct JugadorSTR {
-        var turno, idcamionJ, dinero, deuda, dia, mes: Int
+        var idcamionJ, dinero,dia, mes: Int
         var nombrejugador: String
-        var estajugando: Bool
+     //   var estajugando: Bool
     }
     
     
@@ -189,7 +217,7 @@ class ViewController: UIViewController {
         var nombrecity: String
         var posicion: Int
     }
-    
+    // VARIABLES STRUCT
     var Juego = [JuegoSTR]()
     
     var Jugador = [JugadorSTR]()
@@ -218,6 +246,8 @@ class ViewController: UIViewController {
     var cadena1 = MyVariables.cadena1
     
     let defaults = UserDefaults.standard
+    
+    var dia : Int = 1
     
     var vnombrejugador: String = "-"
     var vcamionenautopista: Bool = false
@@ -258,6 +288,56 @@ class ViewController: UIViewController {
     }
 // ***************************
 // END VIEWDIDLOAD=ONSHOW
+    
+    
+    
+    
+    
+    // FUNCION GUARDARPARTIDA
+    // guarda los datos de la actual partida
+    func GuardarPartida()
+    {
+    defaults.setValue("8000", forKey: "dinero")
+    defaults.synchronize()
+    }
+    // END GUARDARPARTIDA
+    // ******************
+    
+    
+    // FUNCION CARGARPARTIDA
+    // carga los datos de la actual partida
+    func CargarPartida()
+    {
+        /*
+        Jugador.append(JugadorSTR(idcamionJ: 1, dinero: k, dia: 1, mes: 1, nombrejugador: vnombrejugador))
+        
+        
+        Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "BARREIROS FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
+         Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super Madrid nº"+"\(aleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+         //
+         
+         // Rellena la base de Viajes auxiliar 1 a 0
+         Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Mercacue nº "+"\(baleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+         
+         struct JugadorSTR {
+         var idcamionJ, dinero,dia, mes: Int
+         var nombrejugador: String
+         //   var estajugando: Bool
+         }
+         
+         struct CitySTR {
+         var nombrecity: String
+         var posicion: Int
+         }
+        */
+
+        defaults.synchronize()
+    }
+    // END CARGARPARTIDA
+    // ******************
+    
+    
+    
     
     
     
@@ -388,6 +468,7 @@ class ViewController: UIViewController {
         posicionactual = 0
         ciudadactual = 0
         ciudadactuals = City[0].nombrecity
+        dia = 1
         
 
         
@@ -398,13 +479,11 @@ class ViewController: UIViewController {
         var k : Int = DimeAleatorio(inf: 400, sup: 3000) // dinero
 
         
-        Jugador.append(JugadorSTR(turno: 1, idcamionJ: 1, dinero: k, deuda: 0, dia: 1, mes: 1, nombrejugador: vnombrejugador, estajugando: true))
+        Jugador.append(JugadorSTR(idcamionJ: 1, dinero: k, dia: 1, mes: 1, nombrejugador: vnombrejugador))
         
         
         Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "BARREIROS FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
         
-
-
         RellenaViaje()
         
         
@@ -471,7 +550,7 @@ class ViewController: UIViewController {
     func RellenaPantalla()
     {
         var i: Int = 0
-        
+          
      //   posicionmapatxt.text = cityp
         if vcamionenautopista==true { i = 2 } else
             { i=Camion[0].ciudad }
@@ -556,9 +635,17 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
     }
     
+    func RellenaDia()
+    {
+        dia += 1
+        diatexto.text = "\(dia)"
+    }
+    
     //**** VIAJA HACIA DESTINO
     func Viajar()
     {
+        RellenaDia()
+        
         // Control
         if Camion[0].gasolina<2 { GameOver(razon: 1) }
         
@@ -644,6 +731,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     // se guarda en cadena1
     func DescargarViaje(num: Int)
     {
+        cartelmensaje.isHidden = false
         
         if Camion[0].cargado==false {
     popup_name(titulo: "No tienes nada que descargar; debes contratar un viaje y llevarlo al destino", solomensaje: true);
@@ -685,6 +773,8 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     
     
     func ContratarViaje() {
+        cartelmensaje.isHidden = true
+        
         var c: String = "Viaje contratado, trayecto "+city1+"-"+city2
         
         Camion[0].viajecontratado = true
