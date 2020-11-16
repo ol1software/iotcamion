@@ -136,15 +136,9 @@ nombrecamiontxt?.text = "nom="
     
     @IBAction func buttonRepostar(_ sender: Any) {
         
-        var d: Int = 500
-       if Camion[0].gasolina>=5 { d = 300 }
+        Repostar()
+
         
-        else {
-       Camion[0].gasolina = 10
-       Jugador[0].dinero -= d
-            popup_name(titulo: "Introduces tu camión en GAS SUPER , lleno, te cuesta \(d) euros", solomensaje: true)
-        RellenaPantalla()
-        }
     }
     
     
@@ -288,6 +282,33 @@ nombrecamiontxt?.text = "nom="
     }
 // ***************************
 // END VIEWDIDLOAD=ONSHOW
+    
+
+    // FUNCION REPOSTAR
+    // guarda los datos de la actual partida
+    func Repostar()
+    {
+    var d: Int = 500
+    
+    d = Int(Camion[0].gasolina * 100)
+        
+        
+     if Camion[0].gasolina==10
+        {
+            d = DimeAleatorio(inf: 5, sup: 50)
+            popup_name(titulo: "Introduces tu camión en GAS SUPER , pero lo tienes lleno, compras cosas para el camión, te cuestan \(d) euros", solomensaje: true)
+            
+     } else {
+        popup_name(titulo: "Introduces tu camión en GAS SUPER , lleno, te cuesta \(d) euros", solomensaje: true)
+            }
+
+    
+    // LLENADO
+    Camion[0].gasolina = 10
+    Jugador[0].dinero -= d
+    RellenaPantalla()
+    }
+    // END REPOSTAR
     
     
     
@@ -598,6 +619,7 @@ nombrecamiontxt?.text = "nom="
         ciudadactual = des
         ciudadactuals = City[ciudadactual].nombrecity
         
+        popup_name(titulo: "has llegado a " + City[des].nombrecity, solomensaje: true)
 Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
       
         ciudadcamion.selectedSegmentIndex=des
