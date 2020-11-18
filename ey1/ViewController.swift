@@ -92,11 +92,7 @@ class ViewController: UIViewController {
 nombrecamiontxt?.text = "nom="
     }
     
-    func Guardar()
-    {
 
-       }
-    
     
     func Muestrainformacion(titulo: String)
     {
@@ -106,8 +102,8 @@ nombrecamiontxt?.text = "nom="
         
         c = c+"O= \(Camion[0].idciudadorigen)"+","
         c = c+"D = \(Camion[0].idciudaddestino)"+","
-        c = c+"P= \(posicionactual)"+","
-        c = c+"CA \(ciudadactuals)"+","
+        c = c+"P= \(vposicionactual)"+","
+        c = c+"CA \(vciudadactuals)"+","
         
         if titulo=="todo" { t=c }
         informaciontxt.text = t //c
@@ -163,14 +159,15 @@ nombrecamiontxt?.text = "nom="
         static var nombrej = "someString"
         static var cadena1 = "-"
     }
-    
+    /*
     struct JuegoSTR {
         var mapapos, origen, destino, pasos_a : Int
-    }
+    }*/
     
     //    eti_nombre.text = Jugador[0].nombrejugador
     struct JugadorSTR {
-        var idcamionJ, dinero,dia, mes: Int
+        var partidaguardada : Bool = false
+        var idcamionJ, dinero,dia, mes, numeroviajes: Int
         var nombrejugador: String
      //   var estajugando: Bool
     }
@@ -212,7 +209,7 @@ nombrecamiontxt?.text = "nom="
         var posicion: Int
     }
     // VARIABLES STRUCT
-    var Juego = [JuegoSTR]()
+//    var Juego = [JuegoSTR]()
     
     var Jugador = [JugadorSTR]()
     
@@ -222,8 +219,7 @@ nombrecamiontxt?.text = "nom="
     
     var Camion =  [CamionSTR]()
     
-    var city1: String = ""
-    var city2: String = ""
+
     
     var variable0: Int = -1 // var de madrid
     var variable1: Int = -1 // var de cuenca
@@ -232,25 +228,52 @@ nombrecamiontxt?.text = "nom="
     
     // ****END STRUCT
     
+    let defaults = UserDefaults.standard
     
     // *********************************
     // *********************************
     // ********************************* VARIABLES GLOBALES
-    var nombrej = MyVariables.nombrej
-    var cadena1 = MyVariables.cadena1
-    
-    let defaults = UserDefaults.standard
-    
-    var dia : Int = 1
-    
-    var vnombrejugador: String = "-"
-    var vcamionenautopista: Bool = false
-    
-    var ciudadactual: Int = 0
-    var ciudadactuals: String = "españa"
+  //  var nombrej = MyVariables.nombrej
+  //  var cadena1 = MyVariables.cadena1
 
     
+    //*
+    //
+    // ""variables JUGADOR
+    //
     
+    var vpartidaguardada: Bool = false
+    var vdinero: Int = 0
+    var vdia : Int = 1
+   // var vmes : Int = 1
+    var vnumeroviajes: Int = 0
+    var vnombrejugador: String = "-"
+    var vposicionactual: Int = 0
+    var vciudadactual: Int = 0
+    var vciudadactuals: String = "montal"
+    
+    //"" variables camion
+    var vautopista: Bool = false
+    var vidciudadorigen: Int = 0 // de donde sale
+    var vidciudaddestino: Int = 1 // adonde se dirije
+    var vciudad: Int = 0
+    var vidViaje: Int = 0, vkgCapacidad: Int = 0
+    var vkgCarga: Int  = 0
+    var vposicionmapa: Int = 0 // 2= autopista
+    var vnombrecamion: String = "."
+    var vviajecontratado: Bool = false
+    var vcargado: Bool = false
+    var vgasolina: Float = 0.0
+    var vestado: Float = 0.0
+    
+    //"" variables city
+    var vnombrecity1: String = "."
+    var vposicion1: Int = 0
+    var vnombrecity2: String = "."
+    var vposicion2: Int = 0
+
+
+
      // *************************************
     // *************************************
      // *************************************
@@ -265,7 +288,7 @@ nombrecamiontxt?.text = "nom="
     
     // VARIABLES GLOBALES
     //   var cityp: String = ""
-    var posicionactual: Int = 0
+
     
     override func viewDidLoad() {
 
@@ -318,39 +341,134 @@ nombrecamiontxt?.text = "nom="
     // guarda los datos de la actual partida
     func GuardarPartida()
     {
-    defaults.setValue("8000", forKey: "dinero")
+     //
+        
+
+       
+        //"" variables jugador
+        defaults.setValue(vpartidaguardada,forKey:  "j.partidaguardada")
+        defaults.setValue(Jugador[0].idcamionJ, forKey: "j.idcamionj")
+        defaults.setValue(vdinero, forKey: "j.dinero")
+        defaults.setValue(vdia, forKey: "j.dia")
+      //  defaults.setValue(vmes, forKey: "j.mes")
+        defaults.setValue(vnombrejugador, forKey: "j.nombrejugador")
+
+        defaults.setValue(vposicionactual, forKey: "j.posicionactual")
+        defaults.setValue(vciudadactual, forKey: "j.ciudadactual")
+                defaults.setValue(vciudadactuals, forKey: "j.vciudadactuals")
+        
+  
+        //"" variables camion
+        defaults.setValue(vautopista,forKey:  "c.autopista")
+        defaults.setValue(vidciudadorigen,forKey:  "c.idciudadorigen")
+        defaults.setValue(vidciudaddestino,forKey:  "c.idciudaddestino")
+        defaults.setValue(vciudad,forKey:  "c.ciudad")
+      //  defaults.setValue(Camion[0].idjugadorC,forKey:  "c.idjugadorc")
+        defaults.setValue(vidViaje,forKey:  "c.idviaje")
+        defaults.setValue(vkgCapacidad,forKey:  "c.kgCapacidad")
+        defaults.setValue(vkgCarga,forKey:  "c.kgCarga")
+        defaults.setValue(vposicionmapa,forKey:  "c.posicionmapa")
+        defaults.setValue(vnombrecamion,forKey:  "c.nombrecamion")
+        defaults.setValue(vviajecontratado,forKey:  "c.viajecontratado")
+        defaults.setValue(vcargado,forKey:  "c.cargado")
+        defaults.setValue(vgasolina,forKey:  "c.gasolina")
+        defaults.setValue(vestado,forKey:  "c.estado")
+
+        //"" variables city
+        defaults.setValue(vnombrecity1,forKey:  "city.nombrecity1")
+        defaults.setValue(vposicion1,forKey:  "city1.posicion")
+        defaults.setValue(vnombrecity2,forKey:  "city.nombrecity2")
+        defaults.setValue(vposicion2,forKey:  "city2.posicion")
+        
+        
+        //"" constantes, cambian automáticamebte cada viaje
+        defaults.setValue(Viaje0a1[0].idViaje,forKey:  "v01.idViaje")
+        defaults.setValue(Viaje0a1[0].empresa,forKey:  "v01.empresa")
+        defaults.setValue(Viaje0a1[0].tipocarga,forKey:  "v01.tipocarga")
+        defaults.setValue(Viaje0a1[0].pago,forKey:  "v01.pago")
+        defaults.setValue(Viaje0a1[0].pesocarga,forKey:  "v01.pesocarga")
+        defaults.setValue(Viaje0a1[0].idcityorigen,forKey:  "v01.idcityorigen")
+        defaults.setValue(Viaje0a1[0].idcitydestino,forKey:  "v01.idcitydestino")
+        defaults.setValue(Viaje0a1[0].disponible,forKey:  "v01.disponible")
+   
+        defaults.setValue(Viaje1a0[0].idViaje,forKey:  "v10.idViaje")
+        defaults.setValue(Viaje1a0[0].empresa,forKey:  "v10.empresa")
+        defaults.setValue(Viaje1a0[0].tipocarga,forKey:  "v10.tipocarga")
+        defaults.setValue(Viaje1a0[0].pago,forKey:  "v10.pago")
+        defaults.setValue(Viaje1a0[0].pesocarga,forKey:  "v10.pesocarga")
+        defaults.setValue(Viaje1a0[0].idcityorigen,forKey:  "v10.idcityorigen")
+        defaults.setValue(Viaje1a0[0].idcitydestino,forKey:  "v10.idcitydestino")
+        defaults.setValue(Viaje1a0[0].disponible,forKey:  "v10.disponible")
+        
+
+
+
     defaults.synchronize()
     }
     // END GUARDARPARTIDA
     // ******************
     
     
+    
+    
     // FUNCION CARGARPARTIDA
     // carga los datos de la actual partida
     func CargarPartida()
     {
-        /*
-        Jugador.append(JugadorSTR(idcamionJ: 1, dinero: k, dia: 1, mes: 1, nombrejugador: vnombrejugador))
+        //"" variables jugador
+        vpartidaguardada = (defaults.string(forKey: "j.partidaguardada") != nil)
+        vdinero = (defaults.integer(forKey: "j.dinero"))
+        vdia = (defaults.integer(forKey:  "j.dia"))
+        //  vmes = (defaults.string(forKey: "j.mes")
+        vnombrejugador = defaults.string(forKey: "j.nombrejugador")!
+        
+        vposicionactual = defaults.integer(forKey: "j.posicionactual")
+        vciudadactual = defaults.integer(forKey: "j.ciudadactual")
+        vciudadactuals = defaults.string(forKey: "j.vciudadactuals")!
         
         
-        Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "BARREIROS FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
-         Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super Madrid nº"+"\(aleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
-         //
-         
-         // Rellena la base de Viajes auxiliar 1 a 0
-         Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Mercacue nº "+"\(baleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
-         
-         struct JugadorSTR {
-         var idcamionJ, dinero,dia, mes: Int
-         var nombrejugador: String
-         //   var estajugando: Bool
-         }
-         
-         struct CitySTR {
-         var nombrecity: String
-         var posicion: Int
-         }
-        */
+        //"" variables camion
+        vautopista = defaults.bool(forKey: "c.autopista")
+        vidciudadorigen = defaults.integer(forKey:  "c.idciudadorigen")
+        vidciudaddestino = defaults.integer(forKey:  "c.idciudaddestino")
+        vciudad = defaults.integer(forKey:  "c.ciudad")
+        //  Camion[0].idjugadorC,forKey:  "c.idjugadorc")
+        vidViaje = defaults.integer(forKey:  "c.idviaje")
+        vkgCapacidad = defaults.integer(forKey:  "c.kgCapacidad")
+        vkgCarga = defaults.integer(forKey:  "c.kgCarga")
+        vposicionmapa = defaults.integer(forKey:  "c.posicionmapa")
+        vnombrecamion = defaults.string(forKey:  "c.nombrecamion")!
+        vviajecontratado = defaults.bool(forKey:  "c.viajecontratado")
+        vcargado = defaults.bool(forKey:  "c.cargado")
+        vgasolina = defaults.float(forKey:  "c.gasolina")
+        vestado = defaults.float(forKey:  "c.estado")
+        
+        //"" variables city
+        vnombrecity1 = defaults.string(forKey:   "city.nombrecity1")!
+        vposicion1 = defaults.integer(forKey:   "city1.posicion")
+        vnombrecity2 = defaults.string(forKey:  "city.nombrecity2")!
+        vposicion2 = defaults.integer(forKey:   "city2.posicion")
+        
+        
+        //"" constantes, cambian automáticamebte cada viaje
+        Viaje0a1[0].idViaje = defaults.integer(forKey:   "v01.idViaje")
+        Viaje0a1[0].empresa = defaults.string(forKey:   "v01.empresa")!
+        Viaje0a1[0].tipocarga = defaults.string(forKey:   "v01.tipocarga")!
+        Viaje0a1[0].pago = defaults.integer(forKey:   "v01.pago")
+        Viaje0a1[0].pesocarga = defaults.integer(forKey:   "v01.pesocarga")
+        Viaje0a1[0].idcityorigen = defaults.integer(forKey:   "v01.idcityorigen")
+        Viaje0a1[0].idcitydestino = defaults.integer(forKey:   "v01.idcitydestino")
+        Viaje0a1[0].disponible = defaults.bool(forKey:   "v01.disponible")
+        
+        Viaje1a0[0].idViaje = defaults.integer(forKey:   "v10.idViaje")
+        Viaje1a0[0].empresa = defaults.string(forKey:   "v10.empresa")!
+        Viaje1a0[0].tipocarga = defaults.string(forKey:   "v10.tipocarga")!
+        Viaje1a0[0].pago = defaults.integer(forKey:   "v10.pago")
+        Viaje1a0[0].pesocarga = defaults.integer(forKey:   "v10.pesocarga")
+        Viaje1a0[0].idcityorigen = defaults.integer(forKey:   "v10.idcityorigen")
+        Viaje1a0[0].idcitydestino = defaults.integer(forKey:   "v10.idcitydestino")
+        Viaje1a0[0].disponible = defaults.bool(forKey:   "v10.disponible")
+
 
         defaults.synchronize()
     }
@@ -378,10 +496,24 @@ nombrecamiontxt?.text = "nom="
     // FUNCION ResetDatos , resetea los datos del juego
     func ResetDatos()
     {
-        vcamionenautopista==false
-        posicionactual=0
-        ciudadactual  = 0
-        ciudadactuals = "-"
+        vautopista = false
+
+        vciudadactual  = 0
+        vciudadactuals = City[0].nombrecity
+
+        vpartidaguardada = false
+        vdia = 1
+        
+        vposicionactual = 0
+        vnumeroviajes  = 0
+
+        
+        //"" variables camion
+
+         vviajecontratado = false
+         vcargado = false
+        vgasolina = 10.0
+        vestado = 10.0
         
     }
     // END resetdatos
@@ -395,14 +527,13 @@ nombrecamiontxt?.text = "nom="
                 vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
                 popup_name(titulo: "Bienvenido, tu nombre de jugador es "+vnombrejugador+"   En este juego tienes varios botones, que son: CONTRATAR VIAJE-CARGAR-DESCARGAR-VIAJAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Cargar 3-Viajar (hasta llegar a destion) 4- Descargar, y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, saludos! WWW.OL1SOFTWARE.COM", solomensaje: true)
         
-        ResetDatos()
+
         RellenaBD()
         
 
-        
         HabilitaBotones()
         
-        
+
         RellenaPantalla()
     }
     // END Nuevojuego
@@ -473,41 +604,32 @@ nombrecamiontxt?.text = "nom="
     
     // **** FUNCION Rellena las Bases
     func RellenaBD() {
-        
-        City.removeAll()
-        Jugador.removeAll()
-        Camion.removeAll()
-        
         // INICIALIZAR ESTRUCTURAS B.D.
         var c: String = "-"
-
-        
-        City.append(CitySTR(nombrecity: "Madrid", posicion: 0))
-        City.append(CitySTR(nombrecity: "Cuenca", posicion: 1))
-        
-        // RELLENA VARIABLES GLOBALES
-        posicionactual = 0
-        ciudadactual = 0
-        ciudadactuals = City[0].nombrecity
-        dia = 1
-        
-
-        
-       GenerarViajes()
-       
         var i : Int = DimeAleatorio(inf: 2500, sup: 8000) // kgcapacidad del camion
         var j : Int = DimeAleatorio(inf: 100, sup: 200) // modelo
         var k : Int = DimeAleatorio(inf: 400, sup: 3000) // dinero
 
         
-        Jugador.append(JugadorSTR(idcamionJ: 1, dinero: k, dia: 1, mes: 1, nombrejugador: vnombrejugador))
+      
+        // RELLENA VARIABLES GLOBALES
+        City.removeAll()
+        Jugador.removeAll()
+        Camion.removeAll()
+        
+        City.append(CitySTR(nombrecity: "Madrid", posicion: 0))
+        City.append(CitySTR(nombrecity: "Cuenca", posicion: 1))
+        
+        Jugador.append(JugadorSTR(partidaguardada: false, idcamionJ: 1, dinero: k, dia: 1, mes: 1, numeroviajes: 0, nombrejugador: vnombrejugador))
         
         
-        Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "BARREIROS FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
+        Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "Bareiros FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
         
+        
+        ResetDatos()
+        GenerarViajes()
         RellenaViaje()
-        
-        
+ 
     }
     //****END RellenaBD
     
@@ -542,8 +664,8 @@ nombrecamiontxt?.text = "nom="
         
         if iddestino==0 {idorigen=1} else {idorigen=0}
         
-        self.city1 = City[idorigen].nombrecity
-        self.city2 = City[iddestino].nombrecity
+        self.vnombrecity1 = City[idorigen].nombrecity
+        self.vnombrecity2 = City[iddestino].nombrecity
         
        // popup_name(titulo: "Viaje disponible de: "+Viaje[0].empresa, solomensaje: true)
         RellenaPantalla()
@@ -573,13 +695,13 @@ nombrecamiontxt?.text = "nom="
         var i: Int = 0
           
      //   posicionmapatxt.text = cityp
-        if vcamionenautopista==true { i = 2 } else
+        if vautopista==true { i = 2 } else
             { i=Camion[0].ciudad }
         
       //  popup_name(titulo: "CIUDAD="+"\(i)", solomensaje: true)
         
         
-        barra?.value = Float(posicionactual)
+        barra?.value = Float(vposicionactual)
         nombretxt?.text = vnombrejugador
         dinerotxt?.text = "\(Jugador[0].dinero)"
         nombrecamiontxt?.text = Camion[0].nombrecamion
@@ -611,21 +733,27 @@ nombrecamiontxt?.text = "nom="
     //**** END rellenaPantalla
     
     
+    
+    
+    
     //**** HA LLEGADO A SU DESTINO
     func LlegadoaDestino()
     {
         var ori: Int = Camion[0].idciudadorigen
         var des: Int = Camion[0].idciudaddestino
-        ciudadactual = des
-        ciudadactuals = City[ciudadactual].nombrecity
+        var cad1,cad2: String
         
-        popup_name(titulo: "has llegado a " + City[des].nombrecity, solomensaje: true)
+cad1 = "has llegado a " + City[des].nombrecity+", Descargas tu camión de "
+cad2 = Viaje[0].tipocarga+" y cobras... \(Viaje[0].pago) €, Ahora puedes contratar otro viaje aquí"
+
+        
+        popup_name(titulo: cad1+cad2, solomensaje: true)
 Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
       
         ciudadcamion.selectedSegmentIndex=des
 
-        posicionactual = 0
-        vcamionenautopista=false
+        vposicionactual = 0
+        vautopista=false
         
         Camion[0].ciudad = des
         Camion[0].autopista=false
@@ -654,13 +782,17 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
         // DESCARGAR
         
-        
     }
+    
+    
+    
+    
+    
     
     func RellenaDia()
     {
-        dia += 1
-        diatexto.text = "\(dia)"
+        vdia += 1
+        diatexto.text = "\(vdia)"
     }
     
     //**** VIAJA HACIA DESTINO
@@ -680,7 +812,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         { Muestrainformacion(titulo: "Tienes carga todavía. Descarga antes de viajar")
             return
         }
-        if posicionactual == 5
+        if vposicionactual == 5
         {
             LlegadoaDestino()
             return
@@ -688,18 +820,18 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         // Control pasado, ok al viaje
         
         
-        posicionactual += 1
+        vposicionactual += 1
         
         
-        if posicionactual==1 {
-        popup_name(titulo: "Saliendo hacia: "+"\(Camion[0].idciudaddestino)"+", posicionactual: "+"\(posicionactual)", solomensaje: true)
+        if vposicionactual==1 {
+        popup_name(titulo: "Saliendo hacia: "+vnombrecity2, solomensaje: true)
             
         }
         
 
         
             Camion[0].autopista=true
-            vcamionenautopista=true
+            vautopista=true
             
             Camion[0].gasolina=Camion[0].gasolina-1
             Camion[0].posicionmapa = 2
@@ -707,7 +839,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             // popup_name(titulo: "\(posicionactual)" , solomensaje: true)
 
 
-//popup_name(titulo: "Viajando desde "+city1+" a "+city2+", km"+"\(posicionactual)", solomensaje: true)
+//popup_name(titulo: "Viajando desde "+vnombrecity1+" a "+city2+", km"+"\(posicionactual)", solomensaje: true)
         
        // popup_name(titulo: "origen "+"\(Camion[0].idciudadorigen)", solomensaje: true)
 
@@ -766,7 +898,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             return }
         
         if Camion[0].ciudad != Viaje[0].idcitydestino  {
-            popup_name(titulo: "Debes descargar la carga en el destino ("+city2+")", solomensaje: true);
+            popup_name(titulo: "Debes descargar la carga en el destino ("+vnombrecity2+")", solomensaje: true);
             return }
         
         Camion[0].kgCarga=0
@@ -797,7 +929,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     func ContratarViaje() {
         cartelmensaje.isHidden = true
         
-        var c: String = "Viaje contratado, trayecto "+city1+"-"+city2
+        var c: String = "Viaje contratado, trayecto "+vnombrecity1+"-"+vnombrecity2
         
         Camion[0].viajecontratado = true
         
@@ -816,8 +948,6 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     // Si solomensaje=true solo muestra titulo
     func popup_name(titulo: String, solomensaje: Bool)
     {
-
-
         // create the actual alert controller view that will be the pop-up
         let alertController = UIAlertController(title: "iTradeC", message: titulo, preferredStyle: .alert)
 
@@ -828,8 +958,6 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             textField.placeholder = "Nombre"
 
                                     }
-       
-            
         }
 
         
@@ -839,38 +967,29 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             
             // this code runs when the user hits the "save" button
             
-            
 
-            
         }
         
         alertController.addAction(cancelAction)
         alertController.addAction(saveAction)
         
-
-/*
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-            topController.present(alertController, animated: true, completion: nil)
-        }
-      */
         
         DispatchQueue.main.async{
             self.present(alertController, animated: true, completion: nil)
         }
         
-        if solomensaje == false
+        if solomensaje == false // ESTA PIDIENDO EL NOMBRE DE JUGADOR
         {
             var c = alertController.textFields![0].text!
-            defaults.set(c, forKey: "nombrejugador")
+            defaults.set(c, forKey: "j.nombrejugador")
             RellenaBD()
             RellenaPantalla()
         }
         
     }
     //**** END POPUPNAME
+    
+    
     
     // FUNCION Muestrapantalla = muestra/show una pantalla (viewcontroller)
     //**

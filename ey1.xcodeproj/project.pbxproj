@@ -17,6 +17,10 @@
 		236D477D255F21EB00268216 /* nj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236D477C255F21EA00268216 /* nj.gif */; };
 		236DDEA42555CDDA0091942C /* carga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA32555CDD90091942C /* carga.jpg */; };
 		236DDEA62555CDE60091942C /* descarga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA52555CDE60091942C /* descarga.jpg */; };
+		237A7B1225659CA2009625EE /* empresa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B1125659CA1009625EE /* empresa.jpg */; };
+		237A7B142565A102009625EE /* alcantarilla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B132565A102009625EE /* alcantarilla.jpg */; };
+		237A7B162565A136009625EE /* autovia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B152565A134009625EE /* autovia.jpg */; };
+		237A7B1A2565A8A8009625EE /* gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B192565A8A6009625EE /* gas.jpg */; };
 		23A7C0D52561989800682FDE /* partida2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23A7C0D42561989800682FDE /* partida2.plist */; };
 		23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB0412541DB0A0065BFFB /* Main.storyboard */; };
 		23B1F14C254413F000E49582 /* mini18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23B1F14B254413EF00E49582 /* mini18.jpg */; };
@@ -62,6 +66,10 @@
 		236D477C255F21EA00268216 /* nj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nj.gif; path = 2/nj.gif; sourceTree = "<group>"; };
 		236DDEA32555CDD90091942C /* carga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carga.jpg; sourceTree = "<group>"; };
 		236DDEA52555CDE60091942C /* descarga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = descarga.jpg; sourceTree = "<group>"; };
+		237A7B1125659CA1009625EE /* empresa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = empresa.jpg; path = 2/empresa.jpg; sourceTree = "<group>"; };
+		237A7B132565A102009625EE /* alcantarilla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alcantarilla.jpg; path = 2/alcantarilla.jpg; sourceTree = "<group>"; };
+		237A7B152565A134009625EE /* autovia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = autovia.jpg; path = 2/autovia.jpg; sourceTree = "<group>"; };
+		237A7B192565A8A6009625EE /* gas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gas.jpg; path = nou/gas.jpg; sourceTree = "<group>"; };
 		23A7C0D42561989800682FDE /* partida2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida2.plist; sourceTree = "<group>"; };
 		23B1F14B254413EF00E49582 /* mini18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mini18.jpg; sourceTree = "<group>"; };
 		23BCB03A2541DB0A0065BFFB /* ey1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ey1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				236D477C255F21EA00268216 /* nj.gif */,
+				237A7B192565A8A6009625EE /* gas.jpg */,
+				237A7B152565A134009625EE /* autovia.jpg */,
+				237A7B132565A102009625EE /* alcantarilla.jpg */,
+				237A7B1125659CA1009625EE /* empresa.jpg */,
 				231E8FAC254D4AB7001901DD /* salpicadero.jpg */,
 				231E8FB4254D4CDE001901DD /* ccamionp.jpg */,
 				231E8FB6254D4CDF001901DD /* fcamiones.jpg */,
@@ -300,16 +312,20 @@
 				236D477D255F21EB00268216 /* nj.gif in Resources */,
 				236DDEA62555CDE60091942C /* descarga.jpg in Resources */,
 				231E8FB8254D4CDF001901DD /* rarroz.jpg in Resources */,
+				237A7B1A2565A8A8009625EE /* gas.jpg in Resources */,
 				23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */,
 				234D38F42558204100922DC6 /* firma.jpg in Resources */,
 				23D7542A25614F4500ED23D2 /* partida.plist in Resources */,
 				231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */,
+				237A7B162565A136009625EE /* autovia.jpg in Resources */,
 				23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */,
 				231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */,
+				237A7B1225659CA2009625EE /* empresa.jpg in Resources */,
 				23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */,
 				231E8FB9254D4CDF001901DD /* fcamiones.jpg in Resources */,
 				236DDEA42555CDDA0091942C /* carga.jpg in Resources */,
 				23B1F14C254413F000E49582 /* mini18.jpg in Resources */,
+				237A7B142565A102009625EE /* alcantarilla.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
