@@ -14,6 +14,11 @@
 		231E8FBB254D4D04001901DD /* alcantarilla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FBA254D4D03001901DD /* alcantarilla.jpg */; };
 		233A27AB255319B200019A88 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A27AA255319B200019A88 /* ViewController2.swift */; };
 		234D38F42558204100922DC6 /* firma.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 234D38F32558204100922DC6 /* firma.jpg */; };
+		2353C7C82566690600224190 /* contrato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7C72566690400224190 /* contrato.jpg */; };
+		2353C7CA256669FC00224190 /* der.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7C9256669FC00224190 /* der.jpg */; };
+		2353C7CC25666A0300224190 /* izq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CB25666A0300224190 /* izq.jpg */; };
+		2353C7CE2566703C00224190 /* granvia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CD2566703B00224190 /* granvia.jpg */; };
+		2353C7D02566711500224190 /* palett.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CF2566711400224190 /* palett.gif */; };
 		236D477D255F21EB00268216 /* nj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236D477C255F21EA00268216 /* nj.gif */; };
 		236DDEA42555CDDA0091942C /* carga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA32555CDD90091942C /* carga.jpg */; };
 		236DDEA62555CDE60091942C /* descarga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA52555CDE60091942C /* descarga.jpg */; };
@@ -63,6 +68,11 @@
 		231E8FBA254D4D03001901DD /* alcantarilla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alcantarilla.jpg; path = 2/alcantarilla.jpg; sourceTree = "<group>"; };
 		233A27AA255319B200019A88 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		234D38F32558204100922DC6 /* firma.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firma.jpg; sourceTree = "<group>"; };
+		2353C7C72566690400224190 /* contrato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = contrato.jpg; path = nou/contrato.jpg; sourceTree = "<group>"; };
+		2353C7C9256669FC00224190 /* der.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = der.jpg; path = nou/der.jpg; sourceTree = "<group>"; };
+		2353C7CB25666A0300224190 /* izq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = izq.jpg; path = nou/izq.jpg; sourceTree = "<group>"; };
+		2353C7CD2566703B00224190 /* granvia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = granvia.jpg; path = nou/granvia.jpg; sourceTree = "<group>"; };
+		2353C7CF2566711400224190 /* palett.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = palett.gif; sourceTree = "<group>"; };
 		236D477C255F21EA00268216 /* nj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nj.gif; path = 2/nj.gif; sourceTree = "<group>"; };
 		236DDEA32555CDD90091942C /* carga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carga.jpg; sourceTree = "<group>"; };
 		236DDEA52555CDE60091942C /* descarga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = descarga.jpg; sourceTree = "<group>"; };
@@ -177,6 +187,11 @@
 		23F00F242545B38200322590 /* grf */ = {
 			isa = PBXGroup;
 			children = (
+				2353C7CF2566711400224190 /* palett.gif */,
+				2353C7CD2566703B00224190 /* granvia.jpg */,
+				2353C7CB25666A0300224190 /* izq.jpg */,
+				2353C7C9256669FC00224190 /* der.jpg */,
+				2353C7C72566690400224190 /* contrato.jpg */,
 				236D477C255F21EA00268216 /* nj.gif */,
 				237A7B192565A8A6009625EE /* gas.jpg */,
 				237A7B152565A134009625EE /* autovia.jpg */,
@@ -305,9 +320,11 @@
 			files = (
 				23FA2C63255B3BC800F4737D /* logow.jpg in Resources */,
 				23FA2C5D255B3A5F00F4737D /* madrid.jpg in Resources */,
+				2353C7CC25666A0300224190 /* izq.jpg in Resources */,
 				23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */,
 				23A7C0D52561989800682FDE /* partida2.plist in Resources */,
 				231E8FBB254D4D04001901DD /* alcantarilla.jpg in Resources */,
+				2353C7CE2566703C00224190 /* granvia.jpg in Resources */,
 				23FA2C60255B3A7800F4737D /* viajec.jpg in Resources */,
 				236D477D255F21EB00268216 /* nj.gif in Resources */,
 				236DDEA62555CDE60091942C /* descarga.jpg in Resources */,
@@ -316,13 +333,16 @@
 				23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */,
 				234D38F42558204100922DC6 /* firma.jpg in Resources */,
 				23D7542A25614F4500ED23D2 /* partida.plist in Resources */,
+				2353C7C82566690600224190 /* contrato.jpg in Resources */,
 				231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */,
+				2353C7CA256669FC00224190 /* der.jpg in Resources */,
 				237A7B162565A136009625EE /* autovia.jpg in Resources */,
 				23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */,
 				231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */,
 				237A7B1225659CA2009625EE /* empresa.jpg in Resources */,
 				23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */,
 				231E8FB9254D4CDF001901DD /* fcamiones.jpg in Resources */,
+				2353C7D02566711500224190 /* palett.gif in Resources */,
 				236DDEA42555CDDA0091942C /* carga.jpg in Resources */,
 				23B1F14C254413F000E49582 /* mini18.jpg in Resources */,
 				237A7B142565A102009625EE /* alcantarilla.jpg in Resources */,

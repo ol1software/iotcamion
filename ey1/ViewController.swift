@@ -66,17 +66,26 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var botonRepostar: UIButton!
     
+    
+    @IBOutlet weak var cartelVDisponible: UIButton!
+    
     @IBOutlet weak var buttonViajar: UIButton!
     
     @IBOutlet weak var buttonContratarViaje: UIButton!
     
-    @IBOutlet weak var cartelmensaje: UISegmentedControl!
+   
     
     @IBOutlet weak var cartelinfo: UITextView!
     
     @IBOutlet weak var diatexto: UITextField!
     
+    @IBAction func botonGuardar(_ sender: Any) {
+        GuardarPartida()
+    }
     
+    @IBAction func botonCargar(_ sender: Any) {
+        CargarPartida()
+    }
     
     @IBAction func guarda(_ sender: Any) {
 
@@ -333,8 +342,74 @@ nombrecamiontxt?.text = "nom="
     }
     // END REPOSTAR
     
-    
-    
+    // FUNCION GUARDARPARTIDA2 segunda parte (después de advertir con GuardarPartida)
+    // guarda los datos de la actual partida
+    func GuardarPartida2()
+    {
+      
+            // this code runs when the user hits the "save" button
+            
+            
+            //"" variables jugador
+            defaults.setValue(vpartidaguardada,forKey:  "j.partidaguardada")
+            defaults.setValue(Jugador[0].idcamionJ, forKey: "j.idcamionj")
+            defaults.setValue(vdinero, forKey: "j.dinero")
+            defaults.setValue(vdia, forKey: "j.dia")
+            //  defaults.setValue(vmes, forKey: "j.mes")
+            defaults.setValue(vnombrejugador, forKey: "j.nombrejugador")
+            
+            defaults.setValue(vposicionactual, forKey: "j.posicionactual")
+            defaults.setValue(vciudadactual, forKey: "j.ciudadactual")
+            defaults.setValue(vciudadactuals, forKey: "j.vciudadactuals")
+            
+            
+            //"" variables camion
+            defaults.setValue(vautopista,forKey:  "c.autopista")
+            defaults.setValue(vidciudadorigen,forKey:  "c.idciudadorigen")
+            defaults.setValue(vidciudaddestino,forKey:  "c.idciudaddestino")
+            defaults.setValue(vciudad,forKey:  "c.ciudad")
+            //  defaults.setValue(Camion[0].idjugadorC,forKey:  "c.idjugadorc")
+            defaults.setValue(vidViaje,forKey:  "c.idviaje")
+            defaults.setValue(vkgCapacidad,forKey:  "c.kgCapacidad")
+            defaults.setValue(vkgCarga,forKey:  "c.kgCarga")
+            defaults.setValue(vposicionmapa,forKey:  "c.posicionmapa")
+            defaults.setValue(vnombrecamion,forKey:  "c.nombrecamion")
+            defaults.setValue(vviajecontratado,forKey:  "c.viajecontratado")
+            defaults.setValue(vcargado,forKey:  "c.cargado")
+            defaults.setValue(vgasolina,forKey:  "c.gasolina")
+            defaults.setValue(vestado,forKey:  "c.estado")
+            
+            //"" variables city
+            defaults.setValue(vnombrecity1,forKey:  "city.nombrecity1")
+            defaults.setValue(vposicion1,forKey:  "city1.posicion")
+            defaults.setValue(vnombrecity2,forKey:  "city.nombrecity2")
+            defaults.setValue(vposicion2,forKey:  "city2.posicion")
+            
+            
+            //"" constantes, cambian automáticamebte cada viaje
+            defaults.setValue(Viaje0a1[0].idViaje,forKey:  "v01.idViaje")
+            defaults.setValue(Viaje0a1[0].empresa,forKey:  "v01.empresa")
+            defaults.setValue(Viaje0a1[0].tipocarga,forKey:  "v01.tipocarga")
+            defaults.setValue(Viaje0a1[0].pago,forKey:  "v01.pago")
+            defaults.setValue(Viaje0a1[0].pesocarga,forKey:  "v01.pesocarga")
+            defaults.setValue(Viaje0a1[0].idcityorigen,forKey:  "v01.idcityorigen")
+            defaults.setValue(Viaje0a1[0].idcitydestino,forKey:  "v01.idcitydestino")
+            defaults.setValue(Viaje0a1[0].disponible,forKey:  "v01.disponible")
+            
+            defaults.setValue(Viaje1a0[0].idViaje,forKey:  "v10.idViaje")
+            defaults.setValue(Viaje1a0[0].empresa,forKey:  "v10.empresa")
+            defaults.setValue(Viaje1a0[0].tipocarga,forKey:  "v10.tipocarga")
+            defaults.setValue(Viaje1a0[0].pago,forKey:  "v10.pago")
+            defaults.setValue(Viaje1a0[0].pesocarga,forKey:  "v10.pesocarga")
+            defaults.setValue(Viaje1a0[0].idcityorigen,forKey:  "v10.idcityorigen")
+            defaults.setValue(Viaje1a0[0].idcitydestino,forKey:  "v10.idcitydestino")
+            defaults.setValue(Viaje1a0[0].disponible,forKey:  "v10.disponible")
+            
+        
+            
+            defaults.synchronize()
+    popup_name(titulo: "Partida guardada!", solomensaje: true)
+    }
     
     
     // FUNCION GUARDARPARTIDA
@@ -342,68 +417,29 @@ nombrecamiontxt?.text = "nom="
     func GuardarPartida()
     {
      //
+        let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior !", preferredStyle: .alert)
         
+        
+        // add the buttons/actions to the view controller
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            
+            // this code runs when the user hits the "save" button
+            
+           self.GuardarPartida2()
+            // ********************************
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        
+        DispatchQueue.main.async{
+            self.present(alertController, animated: true, completion: nil)
+        }
 
        
-        //"" variables jugador
-        defaults.setValue(vpartidaguardada,forKey:  "j.partidaguardada")
-        defaults.setValue(Jugador[0].idcamionJ, forKey: "j.idcamionj")
-        defaults.setValue(vdinero, forKey: "j.dinero")
-        defaults.setValue(vdia, forKey: "j.dia")
-      //  defaults.setValue(vmes, forKey: "j.mes")
-        defaults.setValue(vnombrejugador, forKey: "j.nombrejugador")
-
-        defaults.setValue(vposicionactual, forKey: "j.posicionactual")
-        defaults.setValue(vciudadactual, forKey: "j.ciudadactual")
-                defaults.setValue(vciudadactuals, forKey: "j.vciudadactuals")
-        
-  
-        //"" variables camion
-        defaults.setValue(vautopista,forKey:  "c.autopista")
-        defaults.setValue(vidciudadorigen,forKey:  "c.idciudadorigen")
-        defaults.setValue(vidciudaddestino,forKey:  "c.idciudaddestino")
-        defaults.setValue(vciudad,forKey:  "c.ciudad")
-      //  defaults.setValue(Camion[0].idjugadorC,forKey:  "c.idjugadorc")
-        defaults.setValue(vidViaje,forKey:  "c.idviaje")
-        defaults.setValue(vkgCapacidad,forKey:  "c.kgCapacidad")
-        defaults.setValue(vkgCarga,forKey:  "c.kgCarga")
-        defaults.setValue(vposicionmapa,forKey:  "c.posicionmapa")
-        defaults.setValue(vnombrecamion,forKey:  "c.nombrecamion")
-        defaults.setValue(vviajecontratado,forKey:  "c.viajecontratado")
-        defaults.setValue(vcargado,forKey:  "c.cargado")
-        defaults.setValue(vgasolina,forKey:  "c.gasolina")
-        defaults.setValue(vestado,forKey:  "c.estado")
-
-        //"" variables city
-        defaults.setValue(vnombrecity1,forKey:  "city.nombrecity1")
-        defaults.setValue(vposicion1,forKey:  "city1.posicion")
-        defaults.setValue(vnombrecity2,forKey:  "city.nombrecity2")
-        defaults.setValue(vposicion2,forKey:  "city2.posicion")
-        
-        
-        //"" constantes, cambian automáticamebte cada viaje
-        defaults.setValue(Viaje0a1[0].idViaje,forKey:  "v01.idViaje")
-        defaults.setValue(Viaje0a1[0].empresa,forKey:  "v01.empresa")
-        defaults.setValue(Viaje0a1[0].tipocarga,forKey:  "v01.tipocarga")
-        defaults.setValue(Viaje0a1[0].pago,forKey:  "v01.pago")
-        defaults.setValue(Viaje0a1[0].pesocarga,forKey:  "v01.pesocarga")
-        defaults.setValue(Viaje0a1[0].idcityorigen,forKey:  "v01.idcityorigen")
-        defaults.setValue(Viaje0a1[0].idcitydestino,forKey:  "v01.idcitydestino")
-        defaults.setValue(Viaje0a1[0].disponible,forKey:  "v01.disponible")
-   
-        defaults.setValue(Viaje1a0[0].idViaje,forKey:  "v10.idViaje")
-        defaults.setValue(Viaje1a0[0].empresa,forKey:  "v10.empresa")
-        defaults.setValue(Viaje1a0[0].tipocarga,forKey:  "v10.tipocarga")
-        defaults.setValue(Viaje1a0[0].pago,forKey:  "v10.pago")
-        defaults.setValue(Viaje1a0[0].pesocarga,forKey:  "v10.pesocarga")
-        defaults.setValue(Viaje1a0[0].idcityorigen,forKey:  "v10.idcityorigen")
-        defaults.setValue(Viaje1a0[0].idcitydestino,forKey:  "v10.idcitydestino")
-        defaults.setValue(Viaje1a0[0].disponible,forKey:  "v10.disponible")
-        
-
-
-
-    defaults.synchronize()
     }
     // END GUARDARPARTIDA
     // ******************
@@ -413,7 +449,7 @@ nombrecamiontxt?.text = "nom="
     
     // FUNCION CARGARPARTIDA
     // carga los datos de la actual partida
-    func CargarPartida()
+    func CargarPartida2()
     {
         //"" variables jugador
         vpartidaguardada = (defaults.string(forKey: "j.partidaguardada") != nil)
@@ -471,6 +507,7 @@ nombrecamiontxt?.text = "nom="
 
 
         defaults.synchronize()
+        RellenaPantalla()
     }
     // END CARGARPARTIDA
     // ******************
@@ -478,6 +515,72 @@ nombrecamiontxt?.text = "nom="
     
     
     
+    
+    // FUNCION GUARDARPARTIDA
+    // guarda los datos de la actual partida
+    func CargarPartida()
+    {
+        //
+        let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas cargar la partida?", preferredStyle: .alert)
+        
+        
+        // add the buttons/actions to the view controller
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            
+            // this code runs when the user hits the "save" button
+            
+            self.CargarPartida2()
+            // ********************************
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        
+        DispatchQueue.main.async{
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        
+    }
+    // END GUARDARPARTIDA
+    // ******************
+    
+  
+    
+    // FUNCION MenuPrincipal
+    // regresa al menú
+    func MenuPrincipal()
+    {
+        //
+        let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
+        
+        
+        // add the buttons/actions to the view controller
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            
+            // this code runs when the user hits the "save" button
+            
+            self.MuestraPantalla(pantalla: "portadaid")
+            // ********************************
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        
+        DispatchQueue.main.async{
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        
+    }
+    // END GUARDARPARTIDA
+    // ******************
     
     
     // Funcion DimeAleatorio
@@ -639,7 +742,10 @@ nombrecamiontxt?.text = "nom="
     
     // **** FUNCION Rellena un viaje nuevo
     func RellenaViaje() {
-                cartelmensaje.isHidden = false
+        
+
+        
+        cartelVDisponible.setTitle("Viaje Disponible", for: .normal)
          GenerarViajes()
         
         // INICIALIZAR ESTRUCTURAS B.D.
@@ -885,7 +991,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     // se guarda en cadena1
     func DescargarViaje(num: Int)
     {
-        cartelmensaje.isHidden = false
+        cartelVDisponible.setTitle("Viaje Disponible", for: .normal)
         
         if Camion[0].cargado==false {
     popup_name(titulo: "No tienes nada que descargar; debes contratar un viaje y llevarlo al destino", solomensaje: true);
@@ -927,7 +1033,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     
     
     func ContratarViaje() {
-        cartelmensaje.isHidden = true
+        cartelVDisponible.setTitle("Viaje Contratado", for: .normal)
         
         var c: String = "Viaje contratado, trayecto "+vnombrecity1+"-"+vnombrecity2
         
