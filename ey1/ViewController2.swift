@@ -42,7 +42,8 @@ let defaults = UserDefaults.standard
     // **********************
     @IBAction func buttonNUEVO(_ sender: Any) {
 
- 
+        defaults.set(false, forKey: "cargandoJuego")
+        defaults.synchronize()
         // popup = pregunta el nick y empieza el juego (func EmpezarJuego)
         popup_y_EmpezarJuego()
 
@@ -63,9 +64,14 @@ let defaults = UserDefaults.standard
     
     
     
-      // establece nombre jugador
+
     @IBAction func buttonCargarJuego(_ sender: Any) {
-        defaults.set(nombrejugadortxt.text, forKey: "nombrejugador")
+        
+        defaults.set(true, forKey: "cargandoJuego")
+        defaults.synchronize()
+        self.EmpezarJuego()
+        
+        //defaults.set(nombrejugadortxt.text, forKey: "nombrejugador")
     }
     
     

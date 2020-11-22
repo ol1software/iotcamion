@@ -36,6 +36,9 @@
 		23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */; };
 		23D7542A25614F4500ED23D2 /* partida.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23D7542925614F4500ED23D2 /* partida.plist */; };
 		23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23E7CD6925593591000D28A4 /* mapaspain.jpg */; };
+		23F29132256AC35300C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */; };
+		23F29134256AC52800C75FCD /* 3d-render-of-cargo-delivery-truck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */; };
+		23F29135256AD72A00C75FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB03F2541DB0A0065BFFB /* ViewController.swift */; };
 		23FA2C57255B2EAF00F4737D /* ViewControllerGAMEOVER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */; };
 		23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5A255B3A4C00F4737D /* Cj.gif */; };
 		23FA2C5D255B3A5F00F4737D /* madrid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5C255B3A5F00F4737D /* madrid.jpg */; };
@@ -96,6 +99,8 @@
 		23BCB05D2541DB0A0065BFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23D7542925614F4500ED23D2 /* partida.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida.plist; sourceTree = "<group>"; };
 		23E7CD6925593591000D28A4 /* mapaspain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mapaspain.jpg; sourceTree = "<group>"; };
+		23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pexels-riccardo-bresciani-salpicadero.jpg"; path = "nou/pexels/pexels-riccardo-bresciani-salpicadero.jpg"; sourceTree = "<group>"; };
+		23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "3d-render-of-cargo-delivery-truck.jpg"; path = "nou/pixabay/3d-render-of-cargo-delivery-truck.jpg"; sourceTree = "<group>"; };
 		23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGAMEOVER.swift; sourceTree = "<group>"; };
 		23FA2C5A255B3A4C00F4737D /* Cj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cj.gif; sourceTree = "<group>"; };
 		23FA2C5C255B3A5F00F4737D /* madrid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = madrid.jpg; sourceTree = "<group>"; };
@@ -187,6 +192,8 @@
 		23F00F242545B38200322590 /* grf */ = {
 			isa = PBXGroup;
 			children = (
+				23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */,
+				23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */,
 				2353C7CF2566711400224190 /* palett.gif */,
 				2353C7CD2566703B00224190 /* granvia.jpg */,
 				2353C7CB25666A0300224190 /* izq.jpg */,
@@ -332,11 +339,13 @@
 				237A7B1A2565A8A8009625EE /* gas.jpg in Resources */,
 				23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */,
 				234D38F42558204100922DC6 /* firma.jpg in Resources */,
+				23F29134256AC52800C75FCD /* 3d-render-of-cargo-delivery-truck.jpg in Resources */,
 				23D7542A25614F4500ED23D2 /* partida.plist in Resources */,
 				2353C7C82566690600224190 /* contrato.jpg in Resources */,
 				231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */,
 				2353C7CA256669FC00224190 /* der.jpg in Resources */,
 				237A7B162565A136009625EE /* autovia.jpg in Resources */,
+				23F29132256AC35300C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */,
 				23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */,
 				231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */,
 				237A7B1225659CA2009625EE /* empresa.jpg in Resources */,
@@ -389,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F29135256AD72A00C75FCD /* ViewController.swift in Sources */,
 				23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
