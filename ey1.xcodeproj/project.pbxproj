@@ -34,6 +34,7 @@
 		23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB0442541DB0A0065BFFB /* LaunchScreen.storyboard */; };
 		23BCB0512541DB0A0065BFFB /* ey1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB0502541DB0A0065BFFB /* ey1Tests.swift */; };
 		23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */; };
+		23C33A0F256C23C4006F29A8 /* ViewControllerAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */; };
 		23D7542A25614F4500ED23D2 /* partida.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23D7542925614F4500ED23D2 /* partida.plist */; };
 		23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23E7CD6925593591000D28A4 /* mapaspain.jpg */; };
 		23F29132256AC35300C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */; };
@@ -97,6 +98,7 @@
 		23BCB0572541DB0A0065BFFB /* ey1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ey1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ey1UITests.swift; sourceTree = "<group>"; };
 		23BCB05D2541DB0A0065BFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAyuda.swift; sourceTree = "<group>"; };
 		23D7542925614F4500ED23D2 /* partida.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida.plist; sourceTree = "<group>"; };
 		23E7CD6925593591000D28A4 /* mapaspain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mapaspain.jpg; sourceTree = "<group>"; };
 		23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pexels-riccardo-bresciani-salpicadero.jpg"; path = "nou/pexels/pexels-riccardo-bresciani-salpicadero.jpg"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				23BCB0472541DB0A0065BFFB /* Info.plist */,
 				233A27AA255319B200019A88 /* ViewController2.swift */,
 				23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */,
+				23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */,
 			);
 			path = ey1;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				23BCB0402541DB0A0065BFFB /* ViewController.swift in Sources */,
 				23BCB03E2541DB0A0065BFFB /* AppDelegate.swift in Sources */,
 				233A27AB255319B200019A88 /* ViewController2.swift in Sources */,
+				23C33A0F256C23C4006F29A8 /* ViewControllerAyuda.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

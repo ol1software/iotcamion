@@ -73,7 +73,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonContratarViaje: UIButton!
     
-   
+    @IBOutlet weak var botonInfo: UIButton!
+    
     
     @IBOutlet weak var cartelinfo: UITextView!
     
@@ -88,8 +89,17 @@ class ViewController: UIViewController {
     // *********************
     // *********************
 
+    @IBAction func botonInfoF(_ sender: Any) {
+        popup_name(titulo: ViewController.jugando.description, solomensaje: true)
+    }
+    
     
     @IBAction func botonAyuda(_ sender: Any) {
+        let vc = ViewControllerAyuda()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+     //   popup_viewcontroller(vc: ViewControllerAyuda())
     }
     
     @IBOutlet weak var cartelViajeDisponible: UIButton!
@@ -124,8 +134,8 @@ class ViewController: UIViewController {
         var t: String = "-"
         t = titulo
         
-        c = c+"O= \(Camion[0].idciudadorigen)"+","
-        c = c+"D = \(Camion[0].idciudaddestino)"+","
+        c = c+"O= \(ViewController.Camion[0].idciudadorigen)"+","
+        c = c+"D = \(ViewController.Camion[0].idciudaddestino)"+","
         c = c+"P= \(vposicionactual)"+","
         c = c+"CA \(vciudadactuals)"+","
         
@@ -143,7 +153,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func botonCARGA(_ sender: UIButton) {
-        if Camion[0].viajecontratado == false {popup_name(titulo: "No has contratado ningún viaje", solomensaje: true) }
+        if ViewController.Camion[0].viajecontratado == false {popup_name(titulo: "No has contratado ningún viaje", solomensaje: true) }
         else {
            
             CargarViaje(num: 0)
@@ -237,20 +247,20 @@ class ViewController: UIViewController {
     // VARIABLES STRUCT
 //    var Juego = [JuegoSTR]()
     
-    var Jugador = [JugadorSTR]()
+    static var Jugador = [JugadorSTR]()
     
-    var Viaje =  [ViajeSTR]()
-    var Viaje0a1 =  [ViajeSTR]() // viajes de mdr-cue
-    var Viaje1a0 =  [ViajeSTR]() // viajes de cue-mdr
+   static  var Viaje =  [ViajeSTR]()
+   static  var Viaje0a1 =  [ViajeSTR]() // viajes de mdr-cue
+    static var Viaje1a0 =  [ViajeSTR]() // viajes de cue-mdr
     
-    var Camion =  [CamionSTR]()
+    static var Camion =  [CamionSTR]()
     
 
     
     var variable0: Int = -1 // var de madrid
     var variable1: Int = -1 // var de cuenca
     
-    var City =    [CitySTR]()
+    static var City =    [CitySTR]()
     
     // ****END STRUCT
     
@@ -265,6 +275,9 @@ class ViewController: UIViewController {
     
     //*
     //
+    // VARIABLES GENERALES (stativ var)
+    static var jugando: Bool = false // indica si está jugando ya
+    
     // ""variables JUGADOR
     //
     
@@ -316,7 +329,8 @@ class ViewController: UIViewController {
     //   var cityp: String = ""
 
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+        {
 
         var b: Bool = false
         
@@ -324,17 +338,38 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if b==false { NuevoJuego() } else { CargarPartida2()
-            
+        if ViewController.jugando==false // Si no estamos jugando= nuevo o cargar
+                    {
+                    if b==false { NuevoJuego() } else { CargarPartida2() }
+                    }  else { RellenaPantalla() } // si estamos jugando = RellenaPantalla
         }
-        
 
-        
-
-   
-    }
 // ***************************
 // END VIEWDIDLOAD=ONSHOW
+    
+    
+    
+    // FUNCIONES
+    // ******************************
+    // ******************************
+    // ******************************
+    // ******************************
+    // ******************************
+    // ******************************
+    // ******************************
+    // ******************************
+
+    
+    // Funcion popupviewcontroller
+    func popup_viewcontroller(vc: UIViewController)
+    {
+        //let vc = ViewControllerAyuda()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+    }
+    // end popupviewcontroller
+    
     
 
     // FUNCION REPOSTAR
@@ -343,10 +378,10 @@ class ViewController: UIViewController {
     {
     var d: Int = 500
     
-    d = Int(Camion[0].gasolina * 100)
+    d = Int(ViewController.Camion[0].gasolina * 100)
         
         
-     if Camion[0].gasolina==10
+     if ViewController.Camion[0].gasolina==10
         {
             d = DimeAleatorio(inf: 5, sup: 50)
             popup_name(titulo: "Introduces tu camión en GAS SUPER , pero lo tienes lleno, compras cosas para el camión, te cuestan \(d) euros", solomensaje: true)
@@ -357,7 +392,7 @@ class ViewController: UIViewController {
 
     
     // LLENADO
-    Camion[0].gasolina = 10
+    ViewController.Camion[0].gasolina = 10
     Jugador[0].dinero -= d
     RellenaPantalla()
     }
@@ -388,15 +423,17 @@ class ViewController: UIViewController {
         defaults.setValue(vidciudadorigen,forKey:  "c.idciudadorigen")
         defaults.setValue(vidciudaddestino,forKey:  "c.idciudaddestino")
         defaults.setValue(vciudad,forKey:  "c.ciudad")
-        //  defaults.setValue(Camion[0].idjugadorC,forKey:  "c.idjugadorc")
+        //  defaults.setValue(ViewController.Camion[0].idjugadorC,forKey:  "c.idjugadorc")
         defaults.setValue(vidViaje,forKey:  "c.idviaje")
-        defaults.setValue(Camion[0].kgCapacidad,forKey:  "c.kgCapacidad")
-        defaults.setValue(Camion[0].kgCarga,forKey:  "c.kgCarga")
+        
+        defaults.setValue(ViewController.Camion[0].kgCapacidad,forKey:  "c.kgCapacidad")
+        defaults.setValue(Viaje[0].pesocarga,forKey:  "c.kgCarga")
+        
         defaults.setValue(vposicionactual,forKey:  "c.vposicionactual")
-        defaults.setValue(Camion[0].nombrecamion,forKey:  "c.nombrecamion")
+        defaults.setValue(ViewController.Camion[0].nombrecamion,forKey:  "c.nombrecamion")
         defaults.setValue(vviajecontratado,forKey:  "c.viajecontratado")
         defaults.setValue(vcargado,forKey:  "c.cargado")
-        defaults.setValue(Camion[0].gasolina,forKey:  "c.gasolina")
+        defaults.setValue(ViewController.Camion[0].gasolina,forKey:  "c.gasolina")
             
 
             
@@ -406,6 +443,8 @@ class ViewController: UIViewController {
             defaults.setValue(vnombrecity2,forKey:  "city.nombrecity2")
             defaults.setValue(vposicion2,forKey:  "city2.posicion")
         
+        
+        //"" variables viaje
         defaults.setValue(Viaje[0].idViaje,forKey:  "v.idViaje")
         defaults.setValue(Viaje[0].empresa,forKey:  "v.empresa")
         defaults.setValue(Viaje[0].tipocarga,forKey:  "v.tipocarga")
@@ -500,7 +539,7 @@ class ViewController: UIViewController {
         vidciudadorigen = defaults.integer(forKey:  "c.idciudadorigen")
         vidciudaddestino = defaults.integer(forKey:  "c.idciudaddestino")
         vciudad = defaults.integer(forKey:  "c.ciudad")
-        //  Camion[0].idjugadorC,forKey:  "c.idjugadorc")
+        //  ViewController.Camion[0].idjugadorC,forKey:  "c.idjugadorc")
         vidViaje = defaults.integer(forKey:  "c.idviaje")
         vkgCapacidad = defaults.integer(forKey:  "c.kgCapacidad")
         vkgCarga = defaults.integer(forKey:  "c.kgCarga")
@@ -511,7 +550,7 @@ class ViewController: UIViewController {
         vgasolina = defaults.float(forKey:  "c.gasolina")
         vestado = defaults.float(forKey:  "c.estado")
         
-                Camion.append(CamionSTR(autopista: vautopista, idciudadorigen: vidciudadorigen, idciudaddestino: vidciudaddestino,   ciudad: vciudad, idjugadorC: 1, idViaje: 0, kgCapacidad: 0, kgCarga: vkgCarga, posicionmapa: vposicionmapa, nombrecamion: vnombrecamion, viajecontratado: vviajecontratado, cargado: vcargado, gasolina: vgasolina, estado: vestado ))
+                Camion.append(CamionSTR(autopista: vautopista, idciudadorigen: vidciudadorigen, idciudaddestino: vidciudaddestino,   ciudad: vciudad, idjugadorC: 1, idViaje: 0, kgCapacidad: vkgCapacidad, kgCarga: vkgCarga, posicionmapa: vposicionmapa, nombrecamion: vnombrecamion, viajecontratado: vviajecontratado, cargado: vcargado, gasolina: vgasolina, estado: vestado ))
         
         //"" variables city
         vnombrecity1 = defaults.string(forKey:   "city.nombrecity1")!
@@ -533,8 +572,10 @@ class ViewController: UIViewController {
 
 
         defaults.synchronize()
-        RellenaPantalla()
+        
         CargarViaje(num: 0)
+        
+        RellenaPantalla()
     }
     // END CARGARPARTIDA
     // ******************
@@ -645,6 +686,8 @@ class ViewController: UIViewController {
     // FUNCION Nuevo Juego
     func NuevoJuego()
     {
+        ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
+        
                 vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
                 popup_name(titulo: "Bienvenido, tu nombre de jugador es "+vnombrejugador+"   En este juego tienes varios botones, que son: CONTRATAR VIAJE-CARGAR-DESCARGAR-VIAJAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Cargar 3-Viajar (hasta llegar a destion) 4- Descargar, y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, saludos! WWW.OL1SOFTWARE.COM", solomensaje: true)
         
@@ -771,7 +814,7 @@ class ViewController: UIViewController {
         var iddestino, idorigen, x: Int
         let aleatorio = Int.random(in: 1..<9)
         
-        idorigen = Camion[0].ciudad
+        idorigen = ViewController.Camion[0].ciudad
         
        
         
@@ -820,9 +863,9 @@ class ViewController: UIViewController {
           
      //   posicionmapatxt.text = cityp
         if vautopista==true { i = 2 } else
-            { i=Camion[0].ciudad }
+            { i=ViewController.Camion[0].ciudad }
         
-        if Camion[0].viajecontratado==true {
+        if Viaje[0].disponible==false {
             cartelViajeDisponible.setTitle("Viaje Contratado", for: .normal)
         }
         else
@@ -833,15 +876,15 @@ class ViewController: UIViewController {
         barra?.value = Float(vposicionactual)
         nombretxt?.text = vnombrejugador
         dinerotxt?.text = "\(Jugador[0].dinero)"
-        nombrecamiontxt?.text = Camion[0].nombrecamion
-        kgcapacidad?.text = "\(Camion[0].kgCapacidad)"
-        camionkgcargado?.text = "\(Camion[0].kgCarga)"
-        barragas?.value = Camion[0].gasolina
-        barraestado?.value = Camion[0].estado
-        camioncargado.isOn=Camion[0].cargado
+        nombrecamiontxt?.text = ViewController.Camion[0].nombrecamion
+        kgcapacidad?.text = "\(ViewController.Camion[0].kgCapacidad)"
+        camionkgcargado?.text = "\(ViewController.Camion[0].kgCarga)"
+        barragas?.value = ViewController.Camion[0].gasolina
+        barraestado?.value = ViewController.Camion[0].estado
+        camioncargado.isOn=ViewController.Camion[0].cargado
         
-        txtorigen.text = City[Camion[0].idciudadorigen].nombrecity
-        txtdestino.text = City[Camion[0].idciudaddestino].nombrecity
+        txtorigen.text = City[ViewController.Camion[0].idciudadorigen].nombrecity
+        txtdestino.text = City[ViewController.Camion[0].idciudaddestino].nombrecity
         empresatxt?.text = Viaje[0].empresa
         tipcarga?.text = Viaje[0].tipocarga
         viajekg?.text = "\(Viaje[0].pesocarga)"
@@ -853,7 +896,7 @@ class ViewController: UIViewController {
     //    ciudaddestino.selectedSegmentIndex = Viaje[0].idcitydestino
         RellenaDia()
         
-        if Camion[0].viajecontratado == true {
+        if ViewController.Camion[0].viajecontratado == true {
             
           //  buttonContratarViaje.isEnabled = false
             viajecontratado?.isOn = true
@@ -868,8 +911,8 @@ class ViewController: UIViewController {
     //**** HA LLEGADO A SU DESTINO
     func LlegadoaDestino()
     {
-        var ori: Int = Camion[0].idciudadorigen
-        var des: Int = Camion[0].idciudaddestino
+        var ori: Int = ViewController.Camion[0].idciudadorigen
+        var des: Int = ViewController.Camion[0].idciudaddestino
         var cad1,cad2: String
         
 cad1 = "has llegado a " + City[des].nombrecity+", Descargas tu camión de "
@@ -884,8 +927,8 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         vposicionactual = 0
         vautopista=false
         
-        Camion[0].ciudad = des
-        Camion[0].autopista=false
+        ViewController.Camion[0].ciudad = des
+        ViewController.Camion[0].autopista=false
         
         
         
@@ -897,13 +940,13 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             else
                   { ori=1 ; des=0 }
         
-        Camion[0].idciudadorigen = ori
-        Camion[0].idciudaddestino = des
+        ViewController.Camion[0].idciudadorigen = ori
+        ViewController.Camion[0].idciudaddestino = des
         
         
         RellenaPantalla()
         
-        if Camion[0].viajecontratado==false { RellenaViaje() }
+        if ViewController.Camion[0].viajecontratado==false { RellenaViaje() }
         else
         {
             DescargarViaje(num: Viaje[0].idViaje)
@@ -936,19 +979,19 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         RellenaDia()
         
         // Control
-        if Camion[0].gasolina<2 { GameOver(razon: 1) }
+        if ViewController.Camion[0].gasolina<2 { GameOver(razon: 1) }
         
-        if Camion[0].cargado==false
+        if ViewController.Camion[0].cargado==false
         { Muestrainformacion(titulo: "Tienes el camión vacío. Contrata un viaje antes de ir a la autopista")
             return
         }
         
-        if Camion[0].gasolina<=5
+        if ViewController.Camion[0].gasolina<=5
         {
           //  Muestrainformacion(titulo: "Tienes poca gasolina. Deberías repostar")
             //return
         }
-        if Camion[0].cargado==true && Camion[0].ciudad==Viaje[0].idcitydestino
+        if ViewController.Camion[0].cargado==true && ViewController.Camion[0].ciudad==Viaje[0].idcitydestino
         { Muestrainformacion(titulo: "Tienes carga todavía. Descarga antes de viajar")
             return
         }
@@ -970,18 +1013,18 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
 
         
-            Camion[0].autopista=true
+            ViewController.Camion[0].autopista=true
             vautopista=true
             
-            Camion[0].gasolina=Camion[0].gasolina-1
-            Camion[0].posicionmapa = 2
+            ViewController.Camion[0].gasolina=ViewController.Camion[0].gasolina-1
+            ViewController.Camion[0].posicionmapa = 2
         
             // popup_name(titulo: "\(posicionactual)" , solomensaje: true)
 
 
 //popup_name(titulo: "Viajando desde "+vnombrecity1+" a "+city2+", km"+"\(posicionactual)", solomensaje: true)
         
-       // popup_name(titulo: "origen "+"\(Camion[0].idciudadorigen)", solomensaje: true)
+       // popup_name(titulo: "origen "+"\(ViewController.Camion[0].idciudadorigen)", solomensaje: true)
 
 
      RellenaPantalla()
@@ -1001,16 +1044,16 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
        //  buttonCarga.isEnabled = false
         
         //   cálculo del tanto por ciento llenado 0.0-1.0
-        capacidad = Float(Camion[0].kgCapacidad)
+        capacidad = Float(ViewController.Camion[0].kgCapacidad)
         peso = Float(Viaje[num].pesocarga)
         llenado = (peso / capacidad)
         
-        Camion[0].kgCarga=Int(peso)
+        ViewController.Camion[0].kgCarga=Int(peso)
         camionkgcargado?.text = "\(Float(peso))"
         // camionkgcargado.text = "\(Float(llenado))"
         barracarga?.progress = llenado
         
-        Camion[0].cargado = true
+        ViewController.Camion[0].cargado = true
 //        buttonCarga.isEnabled = false
         buttonViajar.isEnabled = true
         
@@ -1027,28 +1070,28 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     {
         cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
         
-        if Camion[0].cargado==false {
+        if ViewController.Camion[0].cargado==false {
     popup_name(titulo: "No tienes nada que descargar; debes contratar un viaje y llevarlo al destino", solomensaje: true);
             return }
         
-        if Camion[0].autopista==true
+        if ViewController.Camion[0].autopista==true
         {
             popup_name(titulo: "Descargas en la autopista, causando un gran atasco.", solomensaje: true);
         GameOver(razon: 0)
             return }
         
-        if Camion[0].ciudad != Viaje[0].idcitydestino  {
+        if ViewController.Camion[0].ciudad != Viaje[0].idcitydestino  {
             popup_name(titulo: "Debes descargar la carga en el destino ("+vnombrecity2+")", solomensaje: true);
             return }
         
-        Camion[0].kgCarga=0
+        ViewController.Camion[0].kgCarga=0
         camionkgcargado?.text = "\(Float(0))"
         // camionkgcargado.text = "\(Float(llenado))"
         
         barracarga?.progress = 0
         
-        Camion[0].cargado = false
-        Camion[0].viajecontratado = false
+        ViewController.Camion[0].cargado = false
+        ViewController.Camion[0].viajecontratado = false
         Viaje[0].disponible = true
         
 
@@ -1076,7 +1119,9 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
         var c: String = "Viaje contratado, trayecto "+vnombrecity1+"-"+vnombrecity2
         
-        Camion[0].viajecontratado = true
+        if Viaje[0].disponible == false { c="Ya tienes contratado este viaje. Conduce tu camión hasta "+vnombrecity2 }
+        
+        ViewController.Camion[0].viajecontratado = true
         Viaje[0].disponible = false
         
         RellenaPantalla()
@@ -1095,7 +1140,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     func popup_name(titulo: String, solomensaje: Bool)
     {
         // create the actual alert controller view that will be the pop-up
-        let alertController = UIAlertController(title: "iTradeC", message: titulo, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "ioTCamion", message: titulo, preferredStyle: .alert)
 
         if solomensaje == false
         {
