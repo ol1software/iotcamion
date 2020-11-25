@@ -90,16 +90,13 @@ class ViewController: UIViewController {
     // *********************
 
     @IBAction func botonInfoF(_ sender: Any) {
-        popup_name(titulo: ViewController.jugando.description, solomensaje: true)
+        popup_name(titulo: "\(barra?.value)", solomensaje: true)
     }
     
     
     @IBAction func botonAyuda(_ sender: Any) {
-        let vc = ViewControllerAyuda()
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
-     //   popup_viewcontroller(vc: ViewControllerAyuda())
+        
+        MuestraPantalla(pantalla: "viewayuda")
     }
     
     @IBOutlet weak var cartelViajeDisponible: UIButton!
@@ -133,12 +130,12 @@ class ViewController: UIViewController {
         var c: String = "-"
         var t: String = "-"
         t = titulo
-        
-        c = c+"O= \(ViewController.Camion[0].idciudadorigen)"+","
-        c = c+"D = \(ViewController.Camion[0].idciudaddestino)"+","
+   /*
+        c = c+"O= \(Camion[0].idciudadorigen)"+","
+        c = c+"D = \(Camion[0].idciudaddestino)"+","
         c = c+"P= \(vposicionactual)"+","
         c = c+"CA \(vciudadactuals)"+","
-        
+        */
         if titulo=="todo" { t=c }
         
         popup_name(titulo: titulo, solomensaje: true)
@@ -191,6 +188,11 @@ class ViewController: UIViewController {
     
     
     // STRUCT
+    // *********************
+    // *********************
+    // *********************
+    // *********************
+    
     struct MyVariables {
         static var nombrej = "someString"
         static var cadena1 = "-"
@@ -331,6 +333,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad()
         {
+            // HAY DOS MODOS DE ENTRAR:
+            // 1- NUEVO JUEGO  2- CARGARPARTIDA
+            
+            // HAY UN MODO DE SALIR y VOLVER A ENTRAR
+            // 1- AYUDA
 
         var b: Bool = false
         
@@ -338,10 +345,14 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if ViewController.jugando==false // Si no estamos jugando= nuevo o cargar
+        if ViewController.jugando==false    // Si no estamos jugando= nuevo o cargar
                     {
                     if b==false { NuevoJuego() } else { CargarPartida2() }
-                    }  else { RellenaPantalla() } // si estamos jugando = RellenaPantalla
+                    }
+                else {  // si estamos jugando = RellenaPantalla
+                        RellenaPantalla()
+                        popup_name(titulo: "Regresando al juego", solomensaje: true)
+                     }
         }
 
 // ***************************
@@ -393,7 +404,7 @@ class ViewController: UIViewController {
     
     // LLENADO
     ViewController.Camion[0].gasolina = 10
-    Jugador[0].dinero -= d
+        ViewController.Jugador[0].dinero -= d
     RellenaPantalla()
     }
     // END REPOSTAR
@@ -408,13 +419,13 @@ class ViewController: UIViewController {
             
             //"" variables jugador
             defaults.setValue(vpartidaguardada,forKey:  "j.partidaguardada")
-            defaults.setValue(Jugador[0].idcamionJ, forKey: "j.idcamionj")
-            defaults.setValue(Jugador[0].dinero, forKey: "j.dinero")
-            defaults.setValue(vdia, forKey: "j.dia")
+        defaults.setValue(ViewController.Jugador[0].idcamionJ, forKey: "j.idcamionj")
+            defaults.setValue(ViewController.Jugador[0].dinero, forKey: "j.dinero")
+            defaults.setValue(ViewController.Jugador[0].dia, forKey: "j.dia")
             //  defaults.setValue(vmes, forKey: "j.mes")
-            defaults.setValue(vnombrejugador, forKey: "j.nombrejugador")
+            defaults.setValue(ViewController.Jugador[0].nombrejugador, forKey: "j.nombrejugador")
             
-            defaults.setValue(vposicionactual, forKey: "j.posicionactual")
+            defaults.setValue(ViewController.Camion[0].posicionmapa, forKey: "j.posicionactual")
             defaults.setValue(vciudadactual, forKey: "j.ciudadactual")
             defaults.setValue(vciudadactuals, forKey: "j.vciudadactuals")
         
@@ -427,9 +438,9 @@ class ViewController: UIViewController {
         defaults.setValue(vidViaje,forKey:  "c.idviaje")
         
         defaults.setValue(ViewController.Camion[0].kgCapacidad,forKey:  "c.kgCapacidad")
-        defaults.setValue(Viaje[0].pesocarga,forKey:  "c.kgCarga")
+        defaults.setValue(ViewController.Viaje[0].pesocarga,forKey:  "c.kgCarga")
         
-        defaults.setValue(vposicionactual,forKey:  "c.vposicionactual")
+        defaults.setValue(ViewController.Camion[0].posicionmapa,forKey:  "c.vposicionactual")
         defaults.setValue(ViewController.Camion[0].nombrecamion,forKey:  "c.nombrecamion")
         defaults.setValue(vviajecontratado,forKey:  "c.viajecontratado")
         defaults.setValue(vcargado,forKey:  "c.cargado")
@@ -445,14 +456,14 @@ class ViewController: UIViewController {
         
         
         //"" variables viaje
-        defaults.setValue(Viaje[0].idViaje,forKey:  "v.idViaje")
-        defaults.setValue(Viaje[0].empresa,forKey:  "v.empresa")
-        defaults.setValue(Viaje[0].tipocarga,forKey:  "v.tipocarga")
-        defaults.setValue(Viaje[0].pago,forKey:  "v.pago")
-        defaults.setValue(Viaje[0].pesocarga,forKey:  "v.pesocarga")
-        defaults.setValue(Viaje[0].idcityorigen,forKey:  "v.idcityorigen")
-        defaults.setValue(Viaje[0].idcitydestino,forKey:  "v.idcitydestino")
-        defaults.setValue(Viaje[0].disponible,forKey:  "v.disponible")
+        defaults.setValue(ViewController.Viaje[0].idViaje,forKey:  "v.idViaje")
+        defaults.setValue(ViewController.Viaje[0].empresa,forKey:  "v.empresa")
+        defaults.setValue(ViewController.Viaje[0].tipocarga,forKey:  "v.tipocarga")
+        defaults.setValue(ViewController.Viaje[0].pago,forKey:  "v.pago")
+        defaults.setValue(ViewController.Viaje[0].pesocarga,forKey:  "v.pesocarga")
+        defaults.setValue(ViewController.Viaje[0].idcityorigen,forKey:  "v.idcityorigen")
+        defaults.setValue(ViewController.Viaje[0].idcitydestino,forKey:  "v.idcitydestino")
+        defaults.setValue(ViewController.Viaje[0].disponible,forKey:  "v.disponible")
             
             /*"" constantes, cambian automáticamebte cada viaje
             defaults.setValue(Viaje0a1[0].idViaje,forKey:  "v01.idViaje")
@@ -521,14 +532,17 @@ class ViewController: UIViewController {
     {
         //"" variables jugador
       //  vpartidaguardada = (defaults.string(forKey: "j.partidaguardada") != nil)
-        vdinero = (defaults.integer(forKey: "j.dinero"))
-        vdia = (defaults.integer(forKey:  "j.dia"))
-        //  vmes = (defaults.string(forKey: "j.mes")
-        vnombrejugador = defaults.string(forKey: "j.nombrejugador")!
+        ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
+
+                    vdinero = (defaults.integer(forKey: "j.dinero"))
+                    vdia = (defaults.integer(forKey:  "j.dia"))
+                    //  vmes = (defaults.string(forKey: "j.mes")
+                    vnombrejugador = defaults.string(forKey: "j.nombrejugador")!
+        ViewController.Jugador.append(JugadorSTR(partidaguardada: false, idcamionJ: 1, dinero: vdinero, dia: vdia, mes: 1, numeroviajes: 0, nombrejugador: vnombrejugador))
         
-        Jugador.append(JugadorSTR(partidaguardada: false, idcamionJ: 1, dinero: vdinero, dia: vdia, mes: 1, numeroviajes: 0, nombrejugador: vnombrejugador))
+    ViewController.Camion[0].posicionmapa = defaults.integer(forKey: "j.posicionactual")
         
-        vposicionactual = defaults.integer(forKey: "j.posicionactual")
+       // vposicionactual = defaults.integer(forKey: "j.posicionactual")
         vciudadactual = defaults.integer(forKey: "j.ciudadactual")
         vciudadactuals = defaults.string(forKey: "j.vciudadactuals")!
         
@@ -550,7 +564,7 @@ class ViewController: UIViewController {
         vgasolina = defaults.float(forKey:  "c.gasolina")
         vestado = defaults.float(forKey:  "c.estado")
         
-                Camion.append(CamionSTR(autopista: vautopista, idciudadorigen: vidciudadorigen, idciudaddestino: vidciudaddestino,   ciudad: vciudad, idjugadorC: 1, idViaje: 0, kgCapacidad: vkgCapacidad, kgCarga: vkgCarga, posicionmapa: vposicionmapa, nombrecamion: vnombrecamion, viajecontratado: vviajecontratado, cargado: vcargado, gasolina: vgasolina, estado: vestado ))
+        ViewController.Camion.append(CamionSTR(autopista: vautopista, idciudadorigen: vidciudadorigen, idciudaddestino: vidciudaddestino,   ciudad: vciudad, idjugadorC: 1, idViaje: 0, kgCapacidad: vkgCapacidad, kgCarga: vkgCarga, posicionmapa: vposicionmapa, nombrecamion: vnombrecamion, viajecontratado: vviajecontratado, cargado: vcargado, gasolina: vgasolina, estado: vestado ))
         
         //"" variables city
         vnombrecity1 = defaults.string(forKey:   "city.nombrecity1")!
@@ -558,11 +572,11 @@ class ViewController: UIViewController {
         vnombrecity2 = defaults.string(forKey:  "city.nombrecity2")!
         vposicion2 = defaults.integer(forKey:   "city2.posicion")
         
-        City.append(CitySTR(nombrecity: vnombrecity1, posicion: vposicion1))
-        City.append(CitySTR(nombrecity: vnombrecity2, posicion: vposicion2))
+        ViewController.City.append(CitySTR(nombrecity: vnombrecity1, posicion: vposicion1))
+        ViewController.City.append(CitySTR(nombrecity: vnombrecity2, posicion: vposicion2))
         
         
-        Viaje.append(ViajeSTR(idViaje: 1, empresa: defaults.string(forKey: "v.empresa")!, tipocarga: defaults.string(forKey: "v.tipocarga")!, pago: defaults.integer(forKey: "v.pago"), pesocarga: defaults.integer(forKey: "v.pesocarga"), idcityorigen: defaults.integer(forKey: "v.idcityorigen"), idcitydestino: defaults.integer(forKey: "v.idcitydestino"),  disponible: defaults.bool(forKey: "v.disponible")))
+        ViewController.Viaje.append(ViajeSTR(idViaje: 1, empresa: defaults.string(forKey: "v.empresa")!, tipocarga: defaults.string(forKey: "v.tipocarga")!, pago: defaults.integer(forKey: "v.pago"), pesocarga: defaults.integer(forKey: "v.pesocarga"), idcityorigen: defaults.integer(forKey: "v.idcityorigen"), idcitydestino: defaults.integer(forKey: "v.idcitydestino"),  disponible: defaults.bool(forKey: "v.disponible")))
         
 
    
@@ -610,9 +624,10 @@ class ViewController: UIViewController {
     }
     
     
-    // regresa al menú
+    // regresa al menú / sale del juego
     func MenuPrincipal()
     {
+        ViewController.jugando = false
         //
         let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
         
@@ -661,12 +676,12 @@ class ViewController: UIViewController {
         vautopista = false
 
         vciudadactual  = 0
-        vciudadactuals = City[0].nombrecity
+        vciudadactuals = ViewController.City[0].nombrecity
 
         vpartidaguardada = false
-        vdia = 1
+        ViewController.Jugador[0].dia = 1
         
-        vposicionactual = 0
+        ViewController.Camion[0].posicionmapa = 0
         vnumeroviajes  = 0
 
         
@@ -689,7 +704,7 @@ class ViewController: UIViewController {
         ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
         
                 vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
-                popup_name(titulo: "Bienvenido, tu nombre de jugador es "+vnombrejugador+"   En este juego tienes varios botones, que son: CONTRATAR VIAJE-CARGAR-DESCARGAR-VIAJAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Cargar 3-Viajar (hasta llegar a destion) 4- Descargar, y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, saludos! WWW.OL1SOFTWARE.COM", solomensaje: true)
+                popup_name(titulo: "Bienvenido,  En este juego tienes varios botones, que son: CONTRATAR VIAJE-VIAJAR-REPOSTAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Viajar (hasta llegar a destino) 3-Descargar y cobrar (auto) y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, PULSA EN ºAYUDAº , o ºGUARDARº (barra de abajo) para guardar tu partida saludos! WWW.OL1SOFTWARE.COM", solomensaje: true)
         
 
         RellenaBD()
@@ -726,39 +741,39 @@ class ViewController: UIViewController {
         let baleatorio7 = Int.random(in: 1..<500)
         let baleatorio8 = Int.random(in: 1..<500)
         // Rellena la base de Viajes auxiliar 0 a 1
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Merca Dos nº"+"\(aleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Merca Dos nº"+"\(aleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Eroki nº"+"\(aleatorio2)", tipocarga: "manzanas", pago: 1000, pesocarga: 500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Eroki nº"+"\(aleatorio2)", tipocarga: "manzanas", pago: 1000, pesocarga: 500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Alcasuper nº"+"\(aleatorio3)", tipocarga: "queso", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Alcasuper nº"+"\(aleatorio3)", tipocarga: "queso", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Carro nº"+"\(aleatorio4)", tipocarga: "agua", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Carro nº"+"\(aleatorio4)", tipocarga: "agua", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Superso nº"+"\(aleatorio5)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Superso nº"+"\(aleatorio5)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super paco nº "+"\(aleatorio6)", tipocarga: "garbanzos", pago: 1000, pesocarga: 500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super paco nº "+"\(aleatorio6)", tipocarga: "garbanzos", pago: 1000, pesocarga: 500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Mercado nº "+"\(aleatorio7)", tipocarga: "jamones", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Mercado nº "+"\(aleatorio7)", tipocarga: "jamones", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         
-        Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super Madrid nº"+"\(aleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
+        ViewController.Viaje0a1.append(ViajeSTR(idViaje: 1, empresa: "Super Madrid nº"+"\(aleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 0, idcitydestino: 1,  disponible: true))
         //
         
         // Rellena la base de Viajes auxiliar 1 a 0
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Mercacue nº "+"\(baleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Mercacue nº "+"\(baleatorio)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Ero nº "+"\(baleatorio2)", tipocarga: "manzanas", pago: 1000, pesocarga: 500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Ero nº "+"\(baleatorio2)", tipocarga: "manzanas", pago: 1000, pesocarga: 500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Alca nº "+"\(baleatorio3)", tipocarga: "queso", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Alca nº "+"\(baleatorio3)", tipocarga: "queso", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Carr nº "+"\(baleatorio4)", tipocarga: "agua", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Carr nº "+"\(baleatorio4)", tipocarga: "agua", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super nº "+"\(baleatorio5)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super nº "+"\(baleatorio5)", tipocarga: "leche", pago: 3000, pesocarga: 2500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super nº "+"\(baleatorio6)", tipocarga: "garbanzos", pago: 1000, pesocarga: 500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super nº "+"\(baleatorio6)", tipocarga: "garbanzos", pago: 1000, pesocarga: 500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Merca nº "+"\(baleatorio7)", tipocarga: "jamones", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Merca nº "+"\(baleatorio7)", tipocarga: "jamones", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         
-        Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super CUENCA nº "+"\(baleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
+        ViewController.Viaje1a0.append(ViajeSTR(idViaje: 1, empresa: "Super CUENCA nº "+"\(baleatorio8)", tipocarga: "neveras", pago: 3800, pesocarga: 4500, idcityorigen: 1, idcitydestino: 0,  disponible: true))
         //
     }
     // END GenerarViajes
@@ -777,17 +792,17 @@ class ViewController: UIViewController {
         
       
         // RELLENA VARIABLES GLOBALES
-        City.removeAll()
-        Jugador.removeAll()
-        Camion.removeAll()
+        ViewController.City.removeAll()
+        ViewController.Jugador.removeAll()
+        ViewController.Camion.removeAll()
         
-        City.append(CitySTR(nombrecity: "Madrid", posicion: 0))
-        City.append(CitySTR(nombrecity: "Cuenca", posicion: 1))
+        ViewController.City.append(CitySTR(nombrecity: "Madrid", posicion: 0))
+        ViewController.City.append(CitySTR(nombrecity: "Cuenca", posicion: 1))
         
-        Jugador.append(JugadorSTR(partidaguardada: false, idcamionJ: 1, dinero: k, dia: 1, mes: 1, numeroviajes: 0, nombrejugador: vnombrejugador))
+        ViewController.Jugador.append(JugadorSTR(partidaguardada: false, idcamionJ: 1, dinero: k, dia: 1, mes: 1, numeroviajes: 0, nombrejugador: vnombrejugador))
         
         
-        Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "Bareiros FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
+        ViewController.Camion.append(CamionSTR(autopista: false, idciudadorigen: 0, idciudaddestino: 1,   ciudad: 0, idjugadorC: 1, idViaje: 0, kgCapacidad: i, kgCarga: 0, posicionmapa: 0, nombrecamion: "Bareiros FH"+"\(j)", viajecontratado: false, cargado: false, gasolina: 10.0, estado: 10.0 ))
         
         
         ResetDatos()
@@ -820,21 +835,21 @@ class ViewController: UIViewController {
         
       //  if idorigen==0 { x = variable0 } else { x = variable1 }
         
-        Viaje.removeAll()
+        ViewController.Viaje.removeAll()
         
-        if idorigen==0 { // según la ciudad donde estemos, cargamos un viaje solo de esa ciudad
-        Viaje.append(Viaje0a1[aleatorio])
-        } else { Viaje.append(Viaje1a0[aleatorio]) }
+        if idorigen==0 { // según la ciudad donde estemos, cargamos un ViewController.Viaje solo de esa ciudad
+        ViewController.Viaje.append(ViewController.Viaje0a1[aleatorio])
+        } else { ViewController.Viaje.append(ViewController.Viaje1a0[aleatorio]) }
         
-        idorigen = Viaje[0].idcityorigen
-        iddestino = Viaje[0].idcitydestino
+        idorigen = ViewController.Viaje[0].idcityorigen
+        iddestino = ViewController.Viaje[0].idcitydestino
         
         if iddestino==0 {idorigen=1} else {idorigen=0}
         
-        self.vnombrecity1 = City[idorigen].nombrecity
-        self.vnombrecity2 = City[iddestino].nombrecity
+        self.vnombrecity1 = ViewController.City[idorigen].nombrecity
+        self.vnombrecity2 = ViewController.City[iddestino].nombrecity
         
-       // popup_name(titulo: "Viaje disponible de: "+Viaje[0].empresa, solomensaje: true)
+       // popup_name(titulo: "Viaje disponible de: "+ViewController.Viaje[0].empresa, solomensaje: true)
         RellenaPantalla()
         
     }
@@ -865,17 +880,16 @@ class ViewController: UIViewController {
         if vautopista==true { i = 2 } else
             { i=ViewController.Camion[0].ciudad }
         
-        if Viaje[0].disponible==false {
+        if ViewController.Viaje[0].disponible==false {
             cartelViajeDisponible.setTitle("Viaje Contratado", for: .normal)
         }
         else
         { cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
         }
         
-        
-        barra?.value = Float(vposicionactual)
-        nombretxt?.text = vnombrejugador
-        dinerotxt?.text = "\(Jugador[0].dinero)"
+        barra?.value = Float(ViewController.Camion[0].posicionmapa)
+        nombretxt?.text = ViewController.Jugador[0].nombrejugador
+        dinerotxt?.text = "\(ViewController.Jugador[0].dinero)"
         nombrecamiontxt?.text = ViewController.Camion[0].nombrecamion
         kgcapacidad?.text = "\(ViewController.Camion[0].kgCapacidad)"
         camionkgcargado?.text = "\(ViewController.Camion[0].kgCarga)"
@@ -883,17 +897,17 @@ class ViewController: UIViewController {
         barraestado?.value = ViewController.Camion[0].estado
         camioncargado.isOn=ViewController.Camion[0].cargado
         
-        txtorigen.text = City[ViewController.Camion[0].idciudadorigen].nombrecity
-        txtdestino.text = City[ViewController.Camion[0].idciudaddestino].nombrecity
-        empresatxt?.text = Viaje[0].empresa
-        tipcarga?.text = Viaje[0].tipocarga
-        viajekg?.text = "\(Viaje[0].pesocarga)"
-        viajepago?.text = "\(Viaje[0].pago)"
-        //viajecontratado?.isEnabled = Viaje[0].disponible
+        txtorigen.text = ViewController.City[ViewController.Camion[0].idciudadorigen].nombrecity
+        txtdestino.text = ViewController.City[ViewController.Camion[0].idciudaddestino].nombrecity
+        empresatxt?.text = ViewController.Viaje[0].empresa
+        tipcarga?.text = ViewController.Viaje[0].tipocarga
+        viajekg?.text = "\(ViewController.Viaje[0].pesocarga)"
+        viajepago?.text = "\(ViewController.Viaje[0].pago)"
+        //viajecontratado?.isEnabled = ViewController.Viaje[0].disponible
         
         ciudadcamion.selectedSegmentIndex=i
-    //    ciudadcarga.selectedSegmentIndex = Viaje[0].idcityorigen
-    //    ciudaddestino.selectedSegmentIndex = Viaje[0].idcitydestino
+    //    ciudadcarga.selectedSegmentIndex = ViewController.Viaje[0].idcityorigen
+    //    ciudaddestino.selectedSegmentIndex = ViewController.Viaje[0].idcitydestino
         RellenaDia()
         
         if ViewController.Camion[0].viajecontratado == true {
@@ -915,16 +929,16 @@ class ViewController: UIViewController {
         var des: Int = ViewController.Camion[0].idciudaddestino
         var cad1,cad2: String
         
-cad1 = "has llegado a " + City[des].nombrecity+", Descargas tu camión de "
-cad2 = Viaje[0].tipocarga+" y cobras... \(Viaje[0].pago) €, Ahora puedes contratar otro viaje aquí"
+cad1 = "has llegado a " + ViewController.City[des].nombrecity+", Descargas tu camión de "
+cad2 = ViewController.Viaje[0].tipocarga+" y cobras... \(ViewController.Viaje[0].pago) €, Ahora puedes contratar otro viaje aquí"
 
         
         popup_name(titulo: cad1+cad2, solomensaje: true)
-Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
+Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecity)
       
         ciudadcamion.selectedSegmentIndex=des
 
-        vposicionactual = 0
+        ViewController.Camion[0].posicionmapa = 0
         vautopista=false
         
         ViewController.Camion[0].ciudad = des
@@ -949,7 +963,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         if ViewController.Camion[0].viajecontratado==false { RellenaViaje() }
         else
         {
-            DescargarViaje(num: Viaje[0].idViaje)
+            DescargarViaje(num: ViewController.Viaje[0].idViaje)
         }
         
         // DESCARGAR
@@ -964,7 +978,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     func RellenaDia()
     {
         
-        diatexto.text = "\(vdia)"
+        diatexto.text = "\(ViewController.Jugador[0].dia)"
     }
     
     @IBAction func Viajar0(_ sender: Any) {
@@ -975,8 +989,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
     //**** VIAJA HACIA DESTINO
     func Viajar()
     {
-        vdia += 1
-        RellenaDia()
+
         
         // Control
         if ViewController.Camion[0].gasolina<2 { GameOver(razon: 1) }
@@ -986,16 +999,16 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             return
         }
         
-        if ViewController.Camion[0].gasolina<=5
+        if ViewController.Jugador[0].dinero<=100
         {
-          //  Muestrainformacion(titulo: "Tienes poca gasolina. Deberías repostar")
-            //return
+            GameOver(razon: 2)
+            return
         }
-        if ViewController.Camion[0].cargado==true && ViewController.Camion[0].ciudad==Viaje[0].idcitydestino
+        if ViewController.Camion[0].cargado==true && ViewController.Camion[0].ciudad==ViewController.Viaje[0].idcitydestino
         { Muestrainformacion(titulo: "Tienes carga todavía. Descarga antes de viajar")
             return
         }
-        if vposicionactual == 5
+        if ViewController.Camion[0].posicionmapa == 5
         {
             LlegadoaDestino()
             return
@@ -1003,10 +1016,12 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         // Control pasado, ok al viaje
         
         
-        vposicionactual += 1
+        ViewController.Jugador[0].dia += 1
+        RellenaDia()
+        ViewController.Camion[0].posicionmapa += 1
         
         
-        if vposicionactual==1 {
+        if ViewController.Camion[0].posicionmapa==1 {
             popup_name(titulo: "Camión preparado... 3,2,1 : Saliendo hacia: "+vnombrecity2, solomensaje: true)
             
         }
@@ -1017,7 +1032,6 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
             vautopista=true
             
             ViewController.Camion[0].gasolina=ViewController.Camion[0].gasolina-1
-            ViewController.Camion[0].posicionmapa = 2
         
             // popup_name(titulo: "\(posicionactual)" , solomensaje: true)
 
@@ -1045,7 +1059,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
         //   cálculo del tanto por ciento llenado 0.0-1.0
         capacidad = Float(ViewController.Camion[0].kgCapacidad)
-        peso = Float(Viaje[num].pesocarga)
+        peso = Float(ViewController.Viaje[num].pesocarga)
         llenado = (peso / capacidad)
         
         ViewController.Camion[0].kgCarga=Int(peso)
@@ -1080,7 +1094,7 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         GameOver(razon: 0)
             return }
         
-        if ViewController.Camion[0].ciudad != Viaje[0].idcitydestino  {
+        if ViewController.Camion[0].ciudad != ViewController.Viaje[0].idcitydestino  {
             popup_name(titulo: "Debes descargar la carga en el destino ("+vnombrecity2+")", solomensaje: true);
             return }
         
@@ -1092,16 +1106,16 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
         ViewController.Camion[0].cargado = false
         ViewController.Camion[0].viajecontratado = false
-        Viaje[0].disponible = true
+        ViewController.Viaje[0].disponible = true
         
 
         camioncargado.isOn = false
         
        cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
         
-        Jugador[0].dinero += Viaje[0].pago
+        ViewController.Jugador[0].dinero += ViewController.Viaje[0].pago
         
-        popup_name(titulo: "Viaje Descargado!, Has cobrado "+"\(Viaje[0].pago)", solomensaje: true)
+        popup_name(titulo: "Viaje Descargado!, Has cobrado "+"\(ViewController.Viaje[0].pago)", solomensaje: true)
         
         // RellenaNuevoViaje(origen: int) // 0= madrid 1= cuenca
         RellenaViaje()
@@ -1119,10 +1133,10 @@ Muestrainformacion(titulo: "has llegado a " + City[des].nombrecity)
         
         var c: String = "Viaje contratado, trayecto "+vnombrecity1+"-"+vnombrecity2
         
-        if Viaje[0].disponible == false { c="Ya tienes contratado este viaje. Conduce tu camión hasta "+vnombrecity2 }
+        if ViewController.Viaje[0].disponible == false { c="Ya tienes contratado este viaje. Conduce tu camión hasta "+vnombrecity2 }
         
         ViewController.Camion[0].viajecontratado = true
-        Viaje[0].disponible = false
+        ViewController.Viaje[0].disponible = false
         
         RellenaPantalla()
         

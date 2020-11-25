@@ -240,9 +240,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="I0x-YE-L4P" kind="popoverPresentation" popoverAnchorView="ahE-Ud-uZM" id="U1c-QN-T7d">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="botonAyuda:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TIE-Ij-XZY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaU-or-Oc8">
@@ -552,7 +550,7 @@
         <!--AYUDA-->
         <scene sceneID="uIc-Ke-ORa">
             <objects>
-                <viewController title="AYUDA" id="I0x-YE-L4P" customClass="ViewControllerAyuda" customModule="ey1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewayuda" title="AYUDA" id="I0x-YE-L4P" customClass="ViewControllerAyuda" customModule="ey1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="amV-lG-THJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -810,8 +808,5 @@
         <image name="palett.gif" width="94" height="80"/>
         <image name="pexels-riccardo-bresciani-salpicadero.jpg" width="5184" height="3456"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="U1c-QN-T7d"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
