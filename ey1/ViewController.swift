@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
 
 
@@ -62,8 +60,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonInfo: UIButton!
     @IBOutlet weak var buttonAyuda: UIButton!
     
-    
-
+  
     @IBOutlet weak var botonRepostar: UIButton!
     
     
@@ -75,10 +72,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var botonInfo: UIButton!
     
+
     
     @IBOutlet weak var cartelinfo: UITextView!
     
     @IBOutlet weak var diatexto: UITextField!
+    
+
+    
+    @IBAction func bay(_ sender: UIButton) {
+        MuestraPantalla(pantalla: "viewayuda")
+    }
     
     // ********************* BOTONES
     // *********************
@@ -96,7 +100,7 @@ class ViewController: UIViewController {
     
     @IBAction func botonAyuda(_ sender: Any) {
         
-        MuestraPantalla(pantalla: "viewayuda")
+        
     }
     
     @IBOutlet weak var cartelViajeDisponible: UIButton!
@@ -344,7 +348,7 @@ class ViewController: UIViewController {
         b = defaults.bool(forKey: "cargandoJuego")
         
         super.viewDidLoad()
-        
+        self.definesPresentationContext = true
         if ViewController.jugando==false    // Si no estamos jugando= nuevo o cargar
                     {
                     if b==false { NuevoJuego() } else { CargarPartida2() }
@@ -704,7 +708,7 @@ class ViewController: UIViewController {
         ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
         
                 vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
-                popup_name(titulo: "Bienvenido,  En este juego tienes varios botones, que son: CONTRATAR VIAJE-VIAJAR-REPOSTAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Viajar (hasta llegar a destino) 3-Descargar y cobrar (auto) y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, PULSA EN ºAYUDAº , o ºGUARDARº (barra de abajo) para guardar tu partida saludos! WWW.OL1SOFTWARE.COM", solomensaje: true)
+                popup_name(titulo: "Bienvenido al Juego iTradeCamion! WWW.OL1SOFTWARE.COM", solomensaje: true)
         
 
         RellenaBD()
@@ -821,7 +825,8 @@ class ViewController: UIViewController {
         
 
         
-        cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
+        cartelViajeDisponible.setTitle("Contratar", for: .normal)
+        cartelViajeDisponible.tintColor = UIColor.red;
          GenerarViajes()
         
         // INICIALIZAR ESTRUCTURAS B.D.
