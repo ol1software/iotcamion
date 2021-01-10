@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     
     
 
+    @IBOutlet weak var botViajar: UIButton!
     
     @IBOutlet weak var buttonViajar: UIButton!
     
@@ -868,7 +869,7 @@ class ViewController: UIViewController {
     {
 
 
-        buttonViajar.isEnabled = true
+    //    buttonViajar.isEnabled = true
 //        buttonContratarViaje.isEnabled = true
  
     }
@@ -887,9 +888,16 @@ class ViewController: UIViewController {
         
         if ViewController.Viaje[0].disponible==false {
             cartelViajeDisponible.setTitle("Viaje Contratado", for: .normal)
+            
+            cartelViajeDisponible.backgroundColor = UIColor.red;
+            botViajar.backgroundColor = UIColor.red;
+            
         }
         else
-        { cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
+        {
+            cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
+            cartelViajeDisponible.backgroundColor = UIColor.green;
+            botViajar.backgroundColor = UIColor.green;
         }
         
         barra?.value = Float(ViewController.Camion[0].posicionmapa)
@@ -1074,7 +1082,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         
         ViewController.Camion[0].cargado = true
 //        buttonCarga.isEnabled = false
-        buttonViajar.isEnabled = true
+//        buttonViajar.isEnabled = true
         
         
         RellenaPantalla()
@@ -1135,8 +1143,9 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
     
     func ContratarViaje() {
         
-        
         var c: String = "Viaje contratado, trayecto "+vnombrecity1+"-"+vnombrecity2
+        
+        cartelViajeDisponible.setTitleColor(UIColor.white, for: UIControl.State.selected);
         
         if ViewController.Viaje[0].disponible == false { c="Ya tienes contratado este viaje. Conduce tu camión hasta "+vnombrecity2 }
         
