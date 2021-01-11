@@ -164,7 +164,7 @@
                                 <rect key="frame" x="8" y="232" width="256" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -180,11 +180,11 @@
                                 <color key="progressTintColor" red="1" green="0.0" blue="0.060358078400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3--VIAJAR / MAPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arw-3L-SmA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3- MAPA &gt; Viajar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arw-3L-SmA">
                                 <rect key="frame" x="12" y="337" width="256" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -192,7 +192,7 @@
                                 <rect key="frame" x="8" y="100" width="182" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -273,7 +273,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESTINO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LP-Yu-IJX">
-                                <rect key="frame" x="294" y="380" width="72" height="21"/>
+                                <rect key="frame" x="290" y="477" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -399,7 +399,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="jMl-Fa-JoK">
-                                <rect key="frame" x="35" y="375" width="256" height="30"/>
+                                <rect key="frame" x="26" y="473" width="256" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Donde estás? MAPA:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykg-As-t9D">
@@ -412,15 +412,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unu-ri-h6Z">
-                                <rect key="frame" x="260" y="532" width="98" height="30"/>
+                                <rect key="frame" x="260" y="532" width="110" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="info" backgroundImage="mini18.jpg">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="AYUDA!">
                                     <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="botonInfoF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fca-qi-5UZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="viajando... / Parking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIz-NA-FoP">
+                                <rect key="frame" x="8" y="380" width="359" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Italic" family="Rockwell" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <rect key="contentStretch" x="0.0" y="0.65000000000000002" width="1" height="1"/>
@@ -448,6 +458,7 @@
                         <outlet property="buttonViajar" destination="7BD-i8-Yqp" id="v77-xl-Y3j"/>
                         <outlet property="camioncargado" destination="xj2-uA-Y3W" id="uAi-mH-JLL"/>
                         <outlet property="camionkgcargado" destination="SvT-IL-4OS" id="gnE-ol-0rP"/>
+                        <outlet property="cartelViajando" destination="WIz-NA-FoP" id="ydf-cc-bd2"/>
                         <outlet property="cartelViajeDisponible" destination="o4V-0L-Lto" id="MKi-g6-ibY"/>
                         <outlet property="cartelinfo" destination="Uds-i4-ZRC" id="t8f-2v-cTl"/>
                         <outlet property="ciudadcamion" destination="B3f-Yv-yaC" id="7b0-e4-fKO"/>
@@ -703,10 +714,6 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logow.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Lg-zPq">
-                                <rect key="frame" x="106" y="326" width="137" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPm-Dk-m0A">
                                 <rect key="frame" x="40" y="144" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -737,15 +744,8 @@
                                     <action selector="buttonNUEVO:" destination="nlh-Dc-upa" eventType="touchUpInside" id="TXb-dU-uL1"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Créditos imágenes utilizadas:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Fj-xZ-QjZ">
-                                <rect key="frame" x="139" y="423" width="202" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDd-km-caM">
-                                <rect key="frame" x="47" y="290" width="248" height="27"/>
+                                <rect key="frame" x="23" y="287" width="248" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="tintColor" red="0.60926348030762123" green="1" blue="0.95389276325317729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -760,38 +760,39 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIS-Qu-dOb">
-                                <rect key="frame" x="106" y="62" width="324" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Cargar">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="botonCargar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nYm-8z-7Tc"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-Fd-Zdv">
-                                <rect key="frame" x="67" y="477" width="240" height="128"/>
+                                <rect key="frame" x="16" y="345" width="337" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <string key="text">Bienvenido,  En este juego tienes varios botones, que son: CONTRATAR VIAJE-VIAJAR-REPOSTAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Viajar (hasta llegar a destino) 3-Descargar y cobrar (auto) y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, PULSA EN ºAYUDAº , o ºGUARDARº (barra de abajo) para guardar tu partida saludos! WWW.OL1SOFTWARE.COM</string>
+                                <string key="text">Bienvenido a iOTCamion          En este juego tienes varios botones, que son: CONTRATAR VIAJE-VIAJAR-REPOSTAR; tendrás una cantidad variable de 'viajes' los cuales puedes contratar para transportar de una ciudad a otra. *** Para ello, SIGUE ESTOS PASOS: 1- Contratar viaje 2-Viajar (hasta llegar a destino) 3-Descargar y cobrar (auto) y vuelta a empezar!!!; no olvides repostar tu camión y arreglarlo, PULSA EN ºAYUDAº , o ºGUARDARº (barra de abajo) para guardar tu partida saludos! WWW.OL1SOFTWARE.COM</string>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" editable="NO" text="Créditos imágenes utilizadas:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-d3-VnK">
-                                <rect key="frame" x="69" y="621" width="240" height="38"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-d3-VnK">
+                                <rect key="frame" x="69" y="576" width="240" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <string key="text">CREDITOS IMAGENES UTILIZADAS
+
+GASOLINA
+https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_s105.svg
+No machine-readable author provided. Benedicto16 assumed (based on copyright claims)., Public domain, via Wikimedia Commons
+
+
+CAMION
+&lt;a href="https://www.freepik.com/photos/travel"&gt;Travel photo created by kjpargeter - www.freepik.com&lt;/a&gt;
+</string>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logow.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jcZ-Lg-zPq">
+                                <rect key="frame" x="279" y="263" width="80" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mgI-lZ-Awx"/>

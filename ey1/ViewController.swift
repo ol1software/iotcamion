@@ -37,6 +37,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var barra: UISlider?
     @IBOutlet weak var nombretxt: UITextField?
     @IBOutlet weak var dinerotxt: UITextField?
+    
+    @IBOutlet weak var cartelViajando: UILabel!
+    
   //*
 
     // CAMION
@@ -375,6 +378,63 @@ class ViewController: UIViewController {
     // ******************************
     // ******************************
 
+    // FUNCION ResetDatos , resetea los datos del juego
+    func ResetDatos()
+    {
+        vautopista = false
+        
+        vciudadactual  = 0
+        vciudadactuals = ViewController.City[0].nombrecity
+        
+        ViewController.City[0].nombrecity = "Madrid"
+        ViewController.City[1].nombrecity = "Cuenca"
+
+        
+        vpartidaguardada = false
+        ViewController.Jugador[0].dia = 1
+        
+        ViewController.Camion[0].posicionmapa = 0
+        vnumeroviajes  = 0
+        
+        
+        //"" variables camion
+        
+        vviajecontratado = false
+        vcargado = false
+        vgasolina = 10.0
+        vestado = 10.0
+        
+    }
+    // END resetdatos
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // FUNCION Nuevo Juego
+    func NuevoJuego()
+    {
+        ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
+        
+        vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
+        popup_name(titulo: "Bienvenido al Juego iTradeCamion! WWW.OL1SOFTWARE.COM", solomensaje: true)
+        
+        
+        RellenaBD()
+        
+        
+        HabilitaBotones()
+        
+        
+        RellenaPantalla()
+    }
+    // END Nuevojuego
+    
+    
     
     // Funcion popupviewcontroller
     func popup_viewcontroller(vc: UIViewController)
@@ -675,52 +735,7 @@ class ViewController: UIViewController {
     
     
     
-    // FUNCION ResetDatos , resetea los datos del juego
-    func ResetDatos()
-    {
-        vautopista = false
 
-        vciudadactual  = 0
-        vciudadactuals = ViewController.City[0].nombrecity
-
-        vpartidaguardada = false
-        ViewController.Jugador[0].dia = 1
-        
-        ViewController.Camion[0].posicionmapa = 0
-        vnumeroviajes  = 0
-
-        
-        //"" variables camion
-
-         vviajecontratado = false
-         vcargado = false
-        vgasolina = 10.0
-        vestado = 10.0
-        
-    }
-    // END resetdatos
-        
-        
-        
-        
-    // FUNCION Nuevo Juego
-    func NuevoJuego()
-    {
-        ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
-        
-                vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
-                popup_name(titulo: "Bienvenido al Juego iTradeCamion! WWW.OL1SOFTWARE.COM", solomensaje: true)
-        
-
-        RellenaBD()
-        
-
-        HabilitaBotones()
-        
-
-        RellenaPantalla()
-    }
-    // END Nuevojuego
         
         
         
@@ -883,21 +898,35 @@ class ViewController: UIViewController {
         var i: Int = 0
           
      //   posicionmapatxt.text = cityp
-        if vautopista==true { i = 2 } else
-            { i=ViewController.Camion[0].ciudad }
+        if vautopista==true {
+            i = 2
+         
+                cartelViajando.text = "viajando... (autopista)"
+           
+
+        } else
+            {
+                i=ViewController.Camion[0].ciudad
+                
+                cartelViajando.text = "Parking "+ViewController.City[i].nombrecity
+                
+        }
         
         if ViewController.Viaje[0].disponible==false {
             cartelViajeDisponible.setTitle("Viaje Contratado", for: .normal)
             
             cartelViajeDisponible.backgroundColor = UIColor.red;
-            botViajar.backgroundColor = UIColor.red;
+            botViajar.backgroundColor = UIColor.green;
+            botViajar.tintColor = UIColor.green;
             
         }
         else
         {
-            cartelViajeDisponible.setTitle("Viaje Disponible", for: .normal)
+            cartelViajeDisponible.setTitle("**Contratar Viaje", for: .normal)
             cartelViajeDisponible.backgroundColor = UIColor.green;
-            botViajar.backgroundColor = UIColor.green;
+            botViajar.backgroundColor = UIColor.red;
+            botViajar.tintColor = UIColor.red;
+            
         }
         
         barra?.value = Float(ViewController.Camion[0].posicionmapa)
@@ -1008,7 +1037,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         if ViewController.Camion[0].gasolina<2 { GameOver(razon: 1) }
         
         if ViewController.Camion[0].cargado==false
-        { Muestrainformacion(titulo: "Tienes el camión vacío. Contrata un viaje antes de ir a la autopista")
+        { Muestrainformacion(titulo: "Tienes el camión vacío. Contrata un viaje antes de ir a la autopista (PULSA EN EL BOTÓN VERDE 'CONTRATAR VIAJE'")
             return
         }
         
@@ -1021,8 +1050,14 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         { Muestrainformacion(titulo: "Tienes carga todavía. Descarga antes de viajar")
             return
         }
+        
+        if ViewController.Camion[0].posicionmapa>0 &&  ViewController.Camion[0].posicionmapa<5 {
+            cartelViajando.text = "viajando... (autopista)"
+        }
+        
         if ViewController.Camion[0].posicionmapa == 5
         {
+            cartelViajando.text = "Parking "+String(ViewController.Camion[0].ciudad)
             LlegadoaDestino()
             return
         }
@@ -1035,6 +1070,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         
         
         if ViewController.Camion[0].posicionmapa==1 {
+            cartelViajando.text = "viajando... (autopista)"
             popup_name(titulo: "Camión preparado... 3,2,1 : Saliendo hacia: "+vnombrecity2, solomensaje: true)
             
         }
