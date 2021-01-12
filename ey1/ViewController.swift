@@ -466,7 +466,7 @@ class ViewController: UIViewController {
         popup_name(titulo: "Introduces tu camión en GAS SUPER , lleno, te cuesta \(d) euros", solomensaje: true)
             }
 
-    
+    cartelViajando.text = "Camión lleno de gasoil"
     // LLENADO
     ViewController.Camion[0].gasolina = 10
         ViewController.Jugador[0].dinero -= d
@@ -694,7 +694,7 @@ class ViewController: UIViewController {
     {
         ViewController.jugando = false
         //
-        let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "iTradeCamion", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
         
         
         // add the buttons/actions to the view controller
@@ -890,14 +890,54 @@ class ViewController: UIViewController {
     }
     
     
+    //**** FUNCION PARA RELLENAR el cartel verde de LA PANTALLA CON LOS DATOS DISPONIBLES
+    //
+    func RellenaCartelViajando()
+    {
+        var t, ks, cd: String
+        var idd, k: Int
+        idd = ViewController.Camion[0].idciudaddestino
+        
+        cd = ViewController.City[0].nombrecity
+        
+        if ViewController.Camion[0].posicionmapa == 0
+        {
+            cartelViajando.text = "en Parking de "+cd
+
+        }
+        
+        if ViewController.Camion[0].posicionmapa>0 &&  ViewController.Camion[0].posicionmapa<5 {
+            
+            t = ViewController.Viaje[0].tipocarga
+            k = ViewController.Camion[0].kgCarga
+            ks = String(k) // kg en string
+            
+            
+            cartelViajando.text = "viajando (transporte de "+ks+" kg de "+t+" a:"+vnombrecity2+")"
+            
+        }
+        
+        if ViewController.Camion[0].posicionmapa == 5
+        {
+            cartelViajando.text = "llegado a destino, en Parking "+String(ViewController.Camion[0].ciudad)
+            LlegadoaDestino()
+            return
+        }
+    }
+    // ****
+    
+    
     
     //**** FUNCION PARA RELLENAR LA PANTALLA CON LOS DATOS DISPONIBLES
     // se guarda en cadena1
     func RellenaPantalla()
     {
         var i: Int = 0
-          
-     //   posicionmapatxt.text = cityp
+          i=ViewController.Camion[0].ciudad
+        if vautopista==true { i = 2 }
+        
+        
+     /*  posicionmapatxt.text = cityp
         if vautopista==true {
             i = 2
          
@@ -906,11 +946,11 @@ class ViewController: UIViewController {
 
         } else
             {
-                i=ViewController.Camion[0].ciudad
+         
                 
                 cartelViajando.text = "Parking "+ViewController.City[i].nombrecity
                 
-        }
+        }*/
         
         if ViewController.Viaje[0].disponible==false {
             cartelViajeDisponible.setTitle("Viaje Contratado", for: .normal)
@@ -957,6 +997,8 @@ class ViewController: UIViewController {
           //  buttonContratarViaje.isEnabled = false
             viajecontratado?.isOn = true
         }
+        
+        RellenaCartelViajando()
     }
     //**** END rellenaPantalla
     
@@ -1032,6 +1074,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
     func Viajar()
     {
 
+
         
         // Control
         if ViewController.Camion[0].gasolina<2 { GameOver(razon: 1) }
@@ -1051,28 +1094,23 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
             return
         }
         
-        if ViewController.Camion[0].posicionmapa>0 &&  ViewController.Camion[0].posicionmapa<5 {
-            cartelViajando.text = "viajando... (autopista)"
-        }
         
         if ViewController.Camion[0].posicionmapa == 5
         {
-            cartelViajando.text = "Parking "+String(ViewController.Camion[0].ciudad)
             LlegadoaDestino()
             return
         }
         // Control pasado, ok al viaje
         
-        
+
         ViewController.Jugador[0].dia += 1
         RellenaDia()
         ViewController.Camion[0].posicionmapa += 1
         
         
         if ViewController.Camion[0].posicionmapa==1 {
-            cartelViajando.text = "viajando... (autopista)"
-            popup_name(titulo: "Camión preparado... 3,2,1 : Saliendo hacia: "+vnombrecity2, solomensaje: true)
-            
+           // popup_name(titulo: "Saliendo hacia: "+vnombrecity2, solomensaje: true)
+        Muestrainformacion(titulo: "Viajando hacia "+vnombrecity2+", buen viaje"+"(PULSA VIAJAR para continuar)")
         }
         
 
@@ -1082,12 +1120,6 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
             
             ViewController.Camion[0].gasolina=ViewController.Camion[0].gasolina-1
         
-            // popup_name(titulo: "\(posicionactual)" , solomensaje: true)
-
-
-//popup_name(titulo: "Viajando desde "+vnombrecity1+" a "+city2+", km"+"\(posicionactual)", solomensaje: true)
-        
-       // popup_name(titulo: "origen "+"\(ViewController.Camion[0].idciudadorigen)", solomensaje: true)
 
 
      RellenaPantalla()
