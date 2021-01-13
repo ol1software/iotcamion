@@ -98,7 +98,18 @@ class ViewController: UIViewController {
     // *********************
 
     @IBAction func botonInfoF(_ sender: Any) {
-        popup_name(titulo: "\(barra?.value)", solomensaje: true)
+        var b: Bool
+        
+
+        
+
+        
+       
+        popup_name(titulo: "INSTRUCCIONES DE JUEGO: primero, has de contratar un viaje para transportar mercancía (ESTO LO TIENES EN EL CUADRADO SUPERIOR DONDE PONE '1--CONTRATO'), observa el tipo de empresa, tipo y peso del transporte, y lo que pagan. --- Una vez estés listo, pulsa en el botón verde 'CONTRATAR VIAJE', y tu camión se llenará automáticamente (Observa lo lleno que está el camión en la foto inferior)----Una vez hecho esto, has de viajar hacia tu ciudad de destino (por ejemplo de madrid a cuenca) -- OBSERVA que tienes un cartel de color cyan justo en el cuadrado llamado '3-MAPA', donde te informa si estás preparado para llevar tu cargamento, o si estás en el parking.----Ahora , debes llevar tu camión a tu destino, pulsando en el botón 'VIAJAR' hasta que llegues al destino. -- UNA VEZ llegas al destino, tu camión se descarga de manera AUTOMÁTICA y te ingresan el dinero. -- RECUERDA REPOSTAR TU CAMIÓN PULSANDO EL ICONO DE GASOLINERA, EN LA PARTE INFERIOR.", solomensaje: true)
+        
+        
+        popup_name(titulo: "ESPERO QUE TE GUSTE ESTE JUEGO GRATUITO. -- visita www.ol1software.com y sígueme en el twitter @ol1software", solomensaje: true)
+
     }
     
     
@@ -1233,8 +1244,10 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
     //**** FUNCION PARA CREAR POPUP CON ENTRADA DE TEXTO
     // se guarda en Jugador[0].nombrejugador y nnombretxt
     // Si solomensaje=true solo muestra titulo
-    func popup_name(titulo: String, solomensaje: Bool)
+    func popup_name(titulo: String, solomensaje: Bool) -> Bool
     {
+
+        
         // create the actual alert controller view that will be the pop-up
         let alertController = UIAlertController(title: "ioTCamion", message: titulo, preferredStyle: .alert)
 
@@ -1253,7 +1266,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         let saveAction = UIAlertAction(title: "Ok", style: .default) { _ in
             
             // this code runs when the user hits the "save" button
-            
+            return true
 
         }
         
@@ -1262,7 +1275,13 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         
         
         DispatchQueue.main.async{
-            self.present(alertController, animated: true, completion: nil)
+            
+            if self.presentedViewController==nil{
+                self.present(alertController, animated: true, completion: nil)
+            }else{
+                self.presentedViewController!.present(alertController, animated: true, completion: nil)
+            }
+            
         }
         
         if solomensaje == false // ESTA PIDIENDO EL NOMBRE DE JUGADOR
@@ -1272,6 +1291,7 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
             RellenaBD()
             RellenaPantalla()
         }
+        return false
         
     }
     //**** END POPUPNAME
