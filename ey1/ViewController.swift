@@ -248,11 +248,15 @@ class ViewController: UIViewController {
     
     
     struct CamionSTR {
+        var idViaje: Int
+        var empresa, tipocarga: String
+        var pago, pesocarga, idcityorigen, idcitydestino: Int
+        
         var autopista: Bool
         var idciudadorigen: Int // de donde sale
         var idciudaddestino: Int // adonde se dirije
         var ciudad: Int
-        var idjugadorC,idViaje, kgCapacidad: Int
+        var idjugadorC, kgCapacidad: Int
         var kgCarga: Int  = 0
         var posicionmapa: Int // 2= autopista
         var nombrecamion: String
@@ -364,6 +368,9 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         self.definesPresentationContext = true
+            
+        RellenaBD()
+            
         if ViewController.jugando==false    // Si no estamos jugando= nuevo o cargar
                     {
                     if b==false { NuevoJuego() } else { CargarPartida2() }
@@ -530,8 +537,24 @@ class ViewController: UIViewController {
             defaults.setValue(vnombrecity2,forKey:  "city.nombrecity2")
             defaults.setValue(vposicion2,forKey:  "city2.posicion")
         
+
         
         //"" variables viaje
+        ViewController.Camion[0].empresa = ViewController.Viaje[num].empresa
+        ViewController.Camion[0].tipocarga = ViewController.Camion[0].tipocarga
+        ViewController.Camion[0].pago = ViewController.Camion[0].pago
+        ViewController.Camion[0].pesocarga = ViewController.Camion[0].pesocarga
+        
+       // defaults.setValue(ViewController.Viaje[0].idViaje,forKey:  "v.idViaje")
+        defaults.setValue(ViewController.Camion[0].empresa,forKey:  "v.empresa")
+        defaults.setValue(ViewController.Camion[0].tipocarga,forKey:  "v.tipocarga")
+        defaults.setValue(ViewController.Camion[0].pago,forKey:  "v.pago")
+        defaults.setValue(ViewController.Camion[0].pesocarga,forKey:  "v.pesocarga")
+        defaults.setValue(ViewController.Camion[0].idcityorigen,forKey:  "v.idcityorigen")
+        defaults.setValue(ViewController.Camion[0].idcitydestino,forKey:  "v.idcitydestino")
+
+        
+        /*
         defaults.setValue(ViewController.Viaje[0].idViaje,forKey:  "v.idViaje")
         defaults.setValue(ViewController.Viaje[0].empresa,forKey:  "v.empresa")
         defaults.setValue(ViewController.Viaje[0].tipocarga,forKey:  "v.tipocarga")
@@ -540,7 +563,7 @@ class ViewController: UIViewController {
         defaults.setValue(ViewController.Viaje[0].idcityorigen,forKey:  "v.idcityorigen")
         defaults.setValue(ViewController.Viaje[0].idcitydestino,forKey:  "v.idcitydestino")
         defaults.setValue(ViewController.Viaje[0].disponible,forKey:  "v.disponible")
-            
+            */
             /*"" constantes, cambian automáticamebte cada viaje
             defaults.setValue(Viaje0a1[0].idViaje,forKey:  "v01.idViaje")
             defaults.setValue(Viaje0a1[0].empresa,forKey:  "v01.empresa")
@@ -572,7 +595,9 @@ class ViewController: UIViewController {
     func GuardarPartida()
     {
      //
-        let alertController = UIAlertController(title: "iTradeC", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior !", preferredStyle: .alert)
+        var c: String = defaults.string(forKey: "v.empresa")!
+        
+        let alertController = UIAlertController(title: "iOTCamion", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior ! (empresa: "+c, preferredStyle: .alert)
         
         
         // add the buttons/actions to the view controller
@@ -608,6 +633,8 @@ class ViewController: UIViewController {
     {
         //"" variables jugador
       //  vpartidaguardada = (defaults.string(forKey: "j.partidaguardada") != nil)
+        
+      //  Muestrainformacion(titulo: "cargando juego")
         ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
 
                     vdinero = (defaults.integer(forKey: "j.dinero"))
@@ -674,7 +701,7 @@ class ViewController: UIViewController {
     
     
     
-    // FUNCION GUARDARPARTIDA
+    // FUNCION cargarpartida
     // guarda los datos de la actual partida
     func CargarPartida()
     {
@@ -685,7 +712,7 @@ class ViewController: UIViewController {
         
         
     }
-    // END GUARDARPARTIDA
+    // END
     // ******************
     
   
@@ -705,7 +732,7 @@ class ViewController: UIViewController {
     {
         ViewController.jugando = false
         //
-        let alertController = UIAlertController(title: "iTradeCamion", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "iOTCamion", message: "¿Deseas salir al menú inicial?, esto termina la partida actual !", preferredStyle: .alert)
         
         
         // add the buttons/actions to the view controller
@@ -907,11 +934,11 @@ class ViewController: UIViewController {
     {
         var t, ks, cd: String
         var idd, k: Int
-        idd = ViewController.Camion[0].idciudaddestino
+        idd = ViewController.Camion[0].ciudad
         
-        cd = ViewController.City[0].nombrecity
+        cd = ViewController.City[idd].nombrecity
         
-        if ViewController.Camion[0].posicionmapa == 0
+        if ViewController.Camion[0].posicionmapa != 1
         {
             cartelViajando.text = "en Parking de "+cd
 
@@ -1160,6 +1187,18 @@ Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecit
         barracarga?.progress = llenado
         
         ViewController.Camion[0].cargado = true
+        
+        
+        
+        // PASAR A CAMION ESTOS VALORES DE VIAJE[]
+        // empresa, mercancia, precio, kg  ViewController.Camion[0]
+        
+        ViewController.Camion[0].empresa = ViewController.Viaje[num].empresa
+        ViewController.Camion[0].tipocarga = ViewController.Camion[0].tipocarga
+        ViewController.Camion[0].pago = ViewController.Camion[0].pago
+        ViewController.Camion[0].pesocarga = ViewController.Camion[0].pesocarga
+
+        
 //        buttonCarga.isEnabled = false
 //        buttonViajar.isEnabled = true
         

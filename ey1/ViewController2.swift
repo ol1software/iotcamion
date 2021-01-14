@@ -26,7 +26,10 @@ class ViewController2: UIViewController {
     
     
     
-let defaults = UserDefaults.standard
+    let defaults = UserDefaults.standard
+    
+    let ControladorPrincipal = ViewController()
+    
     var gameover: Bool? = false
     var r: String? = "-"
     var nombrejugador: String = "Jhon"
@@ -77,11 +80,21 @@ let defaults = UserDefaults.standard
     
     
 
+    // INICIO DEL FORMULARIO
+    // ********************
+    // ********************
+    // -
+    // -
     
-
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        
+        
+        
+
+        //ViewPrincipal = new; ViewController()
+        
 
         defaults.set(false, forKey: "gameover")
         defaults.set("-", forKey: "razongameover")
@@ -96,8 +109,56 @@ let defaults = UserDefaults.standard
         // Do any additional setup after loading the view.
     }
     
-
+    //**** FUNCION PARA CREAR POPUP CON TEXTO
+    // ***
+    func popup1(titulo: String)
+    {
+        
+        
+        // create the actual alert controller view that will be the pop-up
+        let alertController = UIAlertController(title: "ioTCamion", message: titulo, preferredStyle: .alert)
     
+        
+        
+        // add the buttons/actions to the view controller
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            
+            // this code runs when the user hits the "save" button
+            return true
+            
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        
+        DispatchQueue.main.async{
+            
+            if self.presentedViewController==nil{
+                self.present(alertController, animated: true, completion: nil)
+            }else{
+                self.presentedViewController!.present(alertController, animated: true, completion: nil)
+            }
+            
+        }
+        
+        
+    }
+    //**** END
+
+    @IBAction func botonAyuda(_ sender: UIButton) {
+        var c: String = "INSTRUCCIONES DE JUEGO: primero, has de contratar un viaje para transportar mercancía (ESTO LO TIENES EN EL CUADRADO SUPERIOR DONDE PONE '1--CONTRATO'), observa el tipo de empresa, tipo y peso del transporte, y lo que pagan. --- Una vez estés listo, pulsa en el botón verde 'CONTRATAR VIAJE', y tu camión se llenará automáticamente (Observa lo lleno que está el camión en la foto inferior)----Una vez hecho esto, has de viajar hacia tu ciudad de destino (por ejemplo de madrid a cuenca) -- OBSERVA que tienes un cartel de color cyan justo en el cuadrado llamado '3-MAPA', donde te informa si estás preparado para llevar tu cargamento, o si estás en el parking.----Ahora , debes llevar tu camión a tu destino, pulsando en el botón 'VIAJAR' hasta que llegues al destino. -- UNA VEZ llegas al destino, tu camión se descarga de manera AUTOMÁTICA y te ingresan el dinero. -- RECUERDA REPOSTAR TU CAMIÓN PULSANDO EL ICONO DE GASOLINERA, EN LA PARTE INFERIOR."
+        
+        popup1(titulo: c)
+        
+    }
+    
+    @IBAction func botonSobre(_ sender: UIButton) {
+        var c: String = "iOTCamion: un juego-simulador de transporte de mercancías por carretera ## Juego gratuito, se permite su distribución por cualquier medio ##.... Desarrollado por OL1 Software, un pequeño estudio de desarrollo de software para Android, iOS, Windows y MAC.... VISÍTAME en www.ol1software.com y en el twitter @ol1software "
+        
+        popup1(titulo: c)
+    }
     
     
     //**** FUNCION PARA CREAR POPUP CON ENTRADA DE TEXTO y EMPEZAR EL JUEGo (llama a EmpezarJuego)
