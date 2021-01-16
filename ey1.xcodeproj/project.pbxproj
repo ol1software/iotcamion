@@ -7,25 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FAC254D4AB7001901DD /* salpicadero.jpg */; };
-		231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FB4254D4CDE001901DD /* ccamionp.jpg */; };
-		231E8FB8254D4CDF001901DD /* rarroz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FB5254D4CDE001901DD /* rarroz.jpg */; };
-		231E8FB9254D4CDF001901DD /* fcamiones.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FB6254D4CDF001901DD /* fcamiones.jpg */; };
-		231E8FBB254D4D04001901DD /* alcantarilla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231E8FBA254D4D03001901DD /* alcantarilla.jpg */; };
+		2321DA7225B2E40D00BF7E6A /* Cj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA6D25B2E40600BF7E6A /* Cj.gif */; };
+		2321DA7325B2E40D00BF7E6A /* nj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA6E25B2E40600BF7E6A /* nj.gif */; };
+		2321DA7425B2E40D00BF7E6A /* gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA6F25B2E40600BF7E6A /* gas.jpg */; };
+		2321DA7525B2E40D00BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7025B2E40700BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg */; };
+		2321DA7625B2E40D00BF7E6A /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7125B2E40900BF7E6A /* pexels-riccardo-bresciani-salpicadero.jpg */; };
+		2321DA7825B2E48700BF7E6A /* logow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7725B2E48600BF7E6A /* logow.jpg */; };
+		2321DA7C25B2E7FF00BF7E6A /* palett.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7B25B2E7FF00BF7E6A /* palett.gif */; };
+		2321DA7E25B2E96500BF7E6A /* truck-3561413_1920.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7D25B2E96500BF7E6A /* truck-3561413_1920.jpg */; };
+		2321DA8025B2EB5800BF7E6A /* truck2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2321DA7F25B2EB5800BF7E6A /* truck2.jpg */; };
 		233A27AB255319B200019A88 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233A27AA255319B200019A88 /* ViewController2.swift */; };
-		234D38F42558204100922DC6 /* firma.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 234D38F32558204100922DC6 /* firma.jpg */; };
-		2353C7C82566690600224190 /* contrato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7C72566690400224190 /* contrato.jpg */; };
-		2353C7CA256669FC00224190 /* der.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7C9256669FC00224190 /* der.jpg */; };
-		2353C7CC25666A0300224190 /* izq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CB25666A0300224190 /* izq.jpg */; };
-		2353C7CE2566703C00224190 /* granvia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CD2566703B00224190 /* granvia.jpg */; };
-		2353C7D02566711500224190 /* palett.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2353C7CF2566711400224190 /* palett.gif */; };
-		236D477D255F21EB00268216 /* nj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236D477C255F21EA00268216 /* nj.gif */; };
-		236DDEA42555CDDA0091942C /* carga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA32555CDD90091942C /* carga.jpg */; };
-		236DDEA62555CDE60091942C /* descarga.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236DDEA52555CDE60091942C /* descarga.jpg */; };
-		237A7B1225659CA2009625EE /* empresa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B1125659CA1009625EE /* empresa.jpg */; };
-		237A7B142565A102009625EE /* alcantarilla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B132565A102009625EE /* alcantarilla.jpg */; };
-		237A7B162565A136009625EE /* autovia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B152565A134009625EE /* autovia.jpg */; };
-		237A7B1A2565A8A8009625EE /* gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237A7B192565A8A6009625EE /* gas.jpg */; };
 		23A7C0D52561989800682FDE /* partida2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23A7C0D42561989800682FDE /* partida2.plist */; };
 		23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB0412541DB0A0065BFFB /* Main.storyboard */; };
 		23B1F14C254413F000E49582 /* mini18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23B1F14B254413EF00E49582 /* mini18.jpg */; };
@@ -36,15 +27,8 @@
 		23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */; };
 		23C33A0F256C23C4006F29A8 /* ViewControllerAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */; };
 		23D7542A25614F4500ED23D2 /* partida.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23D7542925614F4500ED23D2 /* partida.plist */; };
-		23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23E7CD6925593591000D28A4 /* mapaspain.jpg */; };
-		23F29132256AC35300C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */; };
-		23F29134256AC52800C75FCD /* 3d-render-of-cargo-delivery-truck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */; };
 		23F29135256AD72A00C75FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB03F2541DB0A0065BFFB /* ViewController.swift */; };
 		23FA2C57255B2EAF00F4737D /* ViewControllerGAMEOVER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */; };
-		23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5A255B3A4C00F4737D /* Cj.gif */; };
-		23FA2C5D255B3A5F00F4737D /* madrid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5C255B3A5F00F4737D /* madrid.jpg */; };
-		23FA2C60255B3A7800F4737D /* viajec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C5E255B3A7800F4737D /* viajec.jpg */; };
-		23FA2C63255B3BC800F4737D /* logow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23FA2C62255B3BC800F4737D /* logow.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,25 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		231E8FAC254D4AB7001901DD /* salpicadero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salpicadero.jpg; sourceTree = "<group>"; };
-		231E8FB4254D4CDE001901DD /* ccamionp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ccamionp.jpg; path = 2/ccamionp.jpg; sourceTree = "<group>"; };
-		231E8FB5254D4CDE001901DD /* rarroz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rarroz.jpg; path = 2/rarroz.jpg; sourceTree = "<group>"; };
-		231E8FB6254D4CDF001901DD /* fcamiones.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fcamiones.jpg; path = 2/fcamiones.jpg; sourceTree = "<group>"; };
-		231E8FBA254D4D03001901DD /* alcantarilla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alcantarilla.jpg; path = 2/alcantarilla.jpg; sourceTree = "<group>"; };
+		2321DA6D25B2E40600BF7E6A /* Cj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Cj.gif; path = credit/Cj.gif; sourceTree = SOURCE_ROOT; };
+		2321DA6E25B2E40600BF7E6A /* nj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nj.gif; path = credit/nj.gif; sourceTree = SOURCE_ROOT; };
+		2321DA6F25B2E40600BF7E6A /* gas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gas.jpg; path = credit/gas.jpg; sourceTree = SOURCE_ROOT; };
+		2321DA7025B2E40700BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "3d-render-of-cargo-delivery-truck.jpg"; path = "credit/3d-render-of-cargo-delivery-truck.jpg"; sourceTree = SOURCE_ROOT; };
+		2321DA7125B2E40900BF7E6A /* pexels-riccardo-bresciani-salpicadero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pexels-riccardo-bresciani-salpicadero.jpg"; path = "credit/pexels-riccardo-bresciani-salpicadero.jpg"; sourceTree = SOURCE_ROOT; };
+		2321DA7725B2E48600BF7E6A /* logow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logow.jpg; path = credit/logow.jpg; sourceTree = SOURCE_ROOT; };
+		2321DA7B25B2E7FF00BF7E6A /* palett.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = palett.gif; path = credit/palett.gif; sourceTree = SOURCE_ROOT; };
+		2321DA7D25B2E96500BF7E6A /* truck-3561413_1920.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "truck-3561413_1920.jpg"; path = "credit/truck-3561413_1920.jpg"; sourceTree = SOURCE_ROOT; };
+		2321DA7F25B2EB5800BF7E6A /* truck2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = truck2.jpg; path = credit/truck2.jpg; sourceTree = SOURCE_ROOT; };
 		233A27AA255319B200019A88 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		234D38F32558204100922DC6 /* firma.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firma.jpg; sourceTree = "<group>"; };
-		2353C7C72566690400224190 /* contrato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = contrato.jpg; path = nou/contrato.jpg; sourceTree = "<group>"; };
-		2353C7C9256669FC00224190 /* der.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = der.jpg; path = nou/der.jpg; sourceTree = "<group>"; };
-		2353C7CB25666A0300224190 /* izq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = izq.jpg; path = nou/izq.jpg; sourceTree = "<group>"; };
-		2353C7CD2566703B00224190 /* granvia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = granvia.jpg; path = nou/granvia.jpg; sourceTree = "<group>"; };
-		2353C7CF2566711400224190 /* palett.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = palett.gif; sourceTree = "<group>"; };
-		236D477C255F21EA00268216 /* nj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nj.gif; path = 2/nj.gif; sourceTree = "<group>"; };
-		236DDEA32555CDD90091942C /* carga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carga.jpg; sourceTree = "<group>"; };
-		236DDEA52555CDE60091942C /* descarga.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = descarga.jpg; sourceTree = "<group>"; };
-		237A7B1125659CA1009625EE /* empresa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = empresa.jpg; path = 2/empresa.jpg; sourceTree = "<group>"; };
-		237A7B132565A102009625EE /* alcantarilla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = alcantarilla.jpg; path = 2/alcantarilla.jpg; sourceTree = "<group>"; };
-		237A7B152565A134009625EE /* autovia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = autovia.jpg; path = 2/autovia.jpg; sourceTree = "<group>"; };
-		237A7B192565A8A6009625EE /* gas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gas.jpg; path = nou/gas.jpg; sourceTree = "<group>"; };
 		23A7C0D42561989800682FDE /* partida2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida2.plist; sourceTree = "<group>"; };
 		23B1F14B254413EF00E49582 /* mini18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mini18.jpg; sourceTree = "<group>"; };
 		23BCB03A2541DB0A0065BFFB /* ey1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ey1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,14 +75,7 @@
 		23BCB05D2541DB0A0065BFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAyuda.swift; sourceTree = "<group>"; };
 		23D7542925614F4500ED23D2 /* partida.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida.plist; sourceTree = "<group>"; };
-		23E7CD6925593591000D28A4 /* mapaspain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mapaspain.jpg; sourceTree = "<group>"; };
-		23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pexels-riccardo-bresciani-salpicadero.jpg"; path = "nou/pexels/pexels-riccardo-bresciani-salpicadero.jpg"; sourceTree = "<group>"; };
-		23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "3d-render-of-cargo-delivery-truck.jpg"; path = "nou/pixabay/3d-render-of-cargo-delivery-truck.jpg"; sourceTree = "<group>"; };
 		23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGAMEOVER.swift; sourceTree = "<group>"; };
-		23FA2C5A255B3A4C00F4737D /* Cj.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cj.gif; sourceTree = "<group>"; };
-		23FA2C5C255B3A5F00F4737D /* madrid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = madrid.jpg; sourceTree = "<group>"; };
-		23FA2C5E255B3A7800F4737D /* viajec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = viajec.jpg; sourceTree = "<group>"; };
-		23FA2C62255B3BC800F4737D /* logow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logow.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,31 +163,15 @@
 		23F00F242545B38200322590 /* grf */ = {
 			isa = PBXGroup;
 			children = (
-				23F29133256AC52700C75FCD /* 3d-render-of-cargo-delivery-truck.jpg */,
-				23F29131256AC35200C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg */,
-				2353C7CF2566711400224190 /* palett.gif */,
-				2353C7CD2566703B00224190 /* granvia.jpg */,
-				2353C7CB25666A0300224190 /* izq.jpg */,
-				2353C7C9256669FC00224190 /* der.jpg */,
-				2353C7C72566690400224190 /* contrato.jpg */,
-				236D477C255F21EA00268216 /* nj.gif */,
-				237A7B192565A8A6009625EE /* gas.jpg */,
-				237A7B152565A134009625EE /* autovia.jpg */,
-				237A7B132565A102009625EE /* alcantarilla.jpg */,
-				237A7B1125659CA1009625EE /* empresa.jpg */,
-				231E8FAC254D4AB7001901DD /* salpicadero.jpg */,
-				231E8FB4254D4CDE001901DD /* ccamionp.jpg */,
-				231E8FB6254D4CDF001901DD /* fcamiones.jpg */,
-				231E8FB5254D4CDE001901DD /* rarroz.jpg */,
-				231E8FBA254D4D03001901DD /* alcantarilla.jpg */,
-				236DDEA32555CDD90091942C /* carga.jpg */,
-				236DDEA52555CDE60091942C /* descarga.jpg */,
-				234D38F32558204100922DC6 /* firma.jpg */,
-				23E7CD6925593591000D28A4 /* mapaspain.jpg */,
-				23FA2C5A255B3A4C00F4737D /* Cj.gif */,
-				23FA2C5C255B3A5F00F4737D /* madrid.jpg */,
-				23FA2C5E255B3A7800F4737D /* viajec.jpg */,
-				23FA2C62255B3BC800F4737D /* logow.jpg */,
+				2321DA7025B2E40700BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg */,
+				2321DA6D25B2E40600BF7E6A /* Cj.gif */,
+				2321DA7D25B2E96500BF7E6A /* truck-3561413_1920.jpg */,
+				2321DA7F25B2EB5800BF7E6A /* truck2.jpg */,
+				2321DA6F25B2E40600BF7E6A /* gas.jpg */,
+				2321DA7B25B2E7FF00BF7E6A /* palett.gif */,
+				2321DA7725B2E48600BF7E6A /* logow.jpg */,
+				2321DA6E25B2E40600BF7E6A /* nj.gif */,
+				2321DA7125B2E40900BF7E6A /* pexels-riccardo-bresciani-salpicadero.jpg */,
 			);
 			path = grf;
 			sourceTree = "<group>";
@@ -328,36 +280,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FA2C63255B3BC800F4737D /* logow.jpg in Resources */,
-				23FA2C5D255B3A5F00F4737D /* madrid.jpg in Resources */,
-				2353C7CC25666A0300224190 /* izq.jpg in Resources */,
-				23FA2C5B255B3A4C00F4737D /* Cj.gif in Resources */,
 				23A7C0D52561989800682FDE /* partida2.plist in Resources */,
-				231E8FBB254D4D04001901DD /* alcantarilla.jpg in Resources */,
-				2353C7CE2566703C00224190 /* granvia.jpg in Resources */,
-				23FA2C60255B3A7800F4737D /* viajec.jpg in Resources */,
-				236D477D255F21EB00268216 /* nj.gif in Resources */,
-				236DDEA62555CDE60091942C /* descarga.jpg in Resources */,
-				231E8FB8254D4CDF001901DD /* rarroz.jpg in Resources */,
-				237A7B1A2565A8A8009625EE /* gas.jpg in Resources */,
+				2321DA7E25B2E96500BF7E6A /* truck-3561413_1920.jpg in Resources */,
+				2321DA7425B2E40D00BF7E6A /* gas.jpg in Resources */,
+				2321DA7625B2E40D00BF7E6A /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */,
 				23B1074B255B0C4B0022D192 /* Main.storyboard in Resources */,
-				234D38F42558204100922DC6 /* firma.jpg in Resources */,
-				23F29134256AC52800C75FCD /* 3d-render-of-cargo-delivery-truck.jpg in Resources */,
 				23D7542A25614F4500ED23D2 /* partida.plist in Resources */,
-				2353C7C82566690600224190 /* contrato.jpg in Resources */,
-				231E8FAD254D4AB7001901DD /* salpicadero.jpg in Resources */,
-				2353C7CA256669FC00224190 /* der.jpg in Resources */,
-				237A7B162565A136009625EE /* autovia.jpg in Resources */,
-				23F29132256AC35300C75FCD /* pexels-riccardo-bresciani-salpicadero.jpg in Resources */,
-				23E7CD6A25593592000D28A4 /* mapaspain.jpg in Resources */,
-				231E8FB7254D4CDF001901DD /* ccamionp.jpg in Resources */,
-				237A7B1225659CA2009625EE /* empresa.jpg in Resources */,
+				2321DA7825B2E48700BF7E6A /* logow.jpg in Resources */,
+				2321DA7225B2E40D00BF7E6A /* Cj.gif in Resources */,
+				2321DA7525B2E40D00BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg in Resources */,
+				2321DA8025B2EB5800BF7E6A /* truck2.jpg in Resources */,
 				23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */,
-				231E8FB9254D4CDF001901DD /* fcamiones.jpg in Resources */,
-				2353C7D02566711500224190 /* palett.gif in Resources */,
-				236DDEA42555CDDA0091942C /* carga.jpg in Resources */,
+				2321DA7C25B2E7FF00BF7E6A /* palett.gif in Resources */,
 				23B1F14C254413F000E49582 /* mini18.jpg in Resources */,
-				237A7B142565A102009625EE /* alcantarilla.jpg in Resources */,
+				2321DA7325B2E40D00BF7E6A /* nj.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

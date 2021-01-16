@@ -43,6 +43,8 @@ class ViewController: UIViewController {
   //*
 
     // CAMION
+    @IBOutlet weak var cartelRemolque: UILabel!
+    
     @IBOutlet weak var posicionmapatxt: UILabel! // ???
     @IBOutlet weak var ciudadcamion: UISegmentedControl!
     
@@ -702,9 +704,13 @@ class ViewController: UIViewController {
     func GuardarPartida()
     {
      //
+        if ViewController.Camion[0].cargado==true {
+            popup_name(titulo: "No puedes grabar la partida si estás en medio de un viaje.", solomensaje: true)
+            return
+        }
         var c: String = defaults.string(forKey: "v.empresa")!
         
-        let alertController = UIAlertController(title: "iOTCamion", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior ! (empresa: "+c, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "iOTCamion", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior !", preferredStyle: .alert)
         
         
         // add the buttons/actions to the view controller
@@ -921,6 +927,33 @@ class ViewController: UIViewController {
     }
     
     
+    //**** FUNCION PARA RELLENAR el cartel con los datos del REMOLQUE
+    //
+    func RellenaCartelRemolque()
+    {
+        var r: String = "REMOLQUE: "
+        var v: String = "vacío"
+        
+        var t: String = "-"
+        var k: String = "-"
+        
+        var texto: String = "-"
+ 
+        
+        if ViewController.Camion[0].cargado==true
+        {
+            k = String (ViewController.Camion[0].kgCarga)
+            t = ViewController.Viaje[0].tipocarga
+            texto = r+k+" kg de "+t // remolque x kg de y
+            
+        } else {
+            texto = r+v            // remolque vacío
+                }
+        
+        cartelRemolque.text = texto
+    }
+    // END
+    
     //**** FUNCION PARA RELLENAR el cartel verde de LA PANTALLA CON LOS DATOS DISPONIBLES
     //
     func RellenaCartelViajando()
@@ -1029,7 +1062,7 @@ class ViewController: UIViewController {
           //  buttonContratarViaje.isEnabled = false
             viajecontratado?.isOn = true
         }
-        
+        RellenaCartelRemolque()
         RellenaCartelViajando()
     }
     //**** END rellenaPantalla
@@ -1083,7 +1116,7 @@ class ViewController: UIViewController {
         var des: Int = ViewController.Camion[0].idciudaddestino
         var cad1,cad2: String
         
-        LlegadoaDestino2()
+       
         
 cad1 = "has llegado a " + ViewController.City[des].nombrecity+", Descargas tu camión de "
 cad2 = ViewController.Viaje[0].tipocarga+" y cobras... \(ViewController.Viaje[0].pago) €, Ahora puedes contratar otro viaje aquí"
@@ -1092,8 +1125,7 @@ cad2 = ViewController.Viaje[0].tipocarga+" y cobras... \(ViewController.Viaje[0]
         popup_name(titulo: cad1+cad2, solomensaje: true)
 Muestrainformacion(titulo: "has llegado a " + ViewController.City[des].nombrecity)
       
-        
-        
+         LlegadoaDestino2()
         // DESCARGAR
         
     }

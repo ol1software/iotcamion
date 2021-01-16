@@ -104,7 +104,7 @@ class ViewController2: UIViewController {
         gameover = defaults.bool(forKey: "gameover")
         r = defaults.string(forKey: "razongameover")
         
-
+        popup1(titulo: "Bienvenido a iOTCamion! ** UN JUEGO SIMULADOR DE TRANSPORTE ** EN ESTE JUEGO DEBERÁS CONTRATAR UN VIAJE PARA TRANSPORTAR MERCANCIAS CON TU CAMIÓN, ENTRE DOS CIUDADES. **** JUEGO GRATUITO PARA iOS **** un juego original de www.ol1software.com")
 
         // Do any additional setup after loading the view.
     }

@@ -250,7 +250,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3d-render-of-cargo-delivery-truck.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vZG-jC-oYF">
-                                <rect key="frame" x="10" y="519" width="254" height="81"/>
+                                <rect key="frame" x="10" y="531" width="254" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ORIGEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfj-xJ-dtg">
@@ -347,13 +347,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-Bf-bXJ">
-                                <rect key="frame" x="299" y="232" width="39" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-Bf-bXJ">
+                                <rect key="frame" x="8" y="506" width="55" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="carga.jpg"/>
-                                <connections>
-                                    <action selector="ContratarViaje0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5n-vf-NVc"/>
-                                </connections>
+                                <state key="normal" title="Button" image="truck2.jpg"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOl-F9-CNQ">
                                 <rect key="frame" x="17" y="682" width="166" height="19"/>
@@ -400,7 +397,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="viajando... / Parking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIz-NA-FoP">
-                                <rect key="frame" x="8" y="380" width="359" height="21"/>
+                                <rect key="frame" x="10" y="365" width="359" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,6 +438,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REMOLQUE: vacío / 500 kg de leche" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyP-Mf-gzc">
+                                <rect key="frame" x="62" y="510" width="266" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.71373961095438077" green="0.90426288366683938" blue="0.82065323958448055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Italic" family="Rockwell" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <rect key="contentStretch" x="0.0" y="0.65000000000000002" width="1" height="1"/>
@@ -468,6 +473,7 @@
                         <outlet property="buttonViajar" destination="7BD-i8-Yqp" id="v77-xl-Y3j"/>
                         <outlet property="camioncargado" destination="xj2-uA-Y3W" id="uAi-mH-JLL"/>
                         <outlet property="camionkgcargado" destination="SvT-IL-4OS" id="gnE-ol-0rP"/>
+                        <outlet property="cartelRemolque" destination="yyP-Mf-gzc" id="yKB-bE-Yfx"/>
                         <outlet property="cartelViajando" destination="WIz-NA-FoP" id="ydf-cc-bd2"/>
                         <outlet property="cartelViajeDisponible" destination="o4V-0L-Lto" id="MKi-g6-ibY"/>
                         <outlet property="cartelinfo" destination="Uds-i4-ZRC" id="t8f-2v-cTl"/>
@@ -775,7 +781,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <string key="text">CREDITOS IMAGENES UTILIZADAS
+                                <mutableString key="text">CREDITOS IMAGENES UTILIZADAS
 
 GASOLINA
 https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_s105.svg
@@ -783,8 +789,11 @@ No machine-readable author provided. Benedicto16 assumed (based on copyright cla
 
 
 CAMION
-&lt;a href="https://www.freepik.com/photos/travel"&gt;Travel photo created by kjpargeter - www.freepik.com&lt;/a&gt;
-</string>
+&lt;a href="https://www.freepik.com/photos/travel"&gt;Travel photo created by kjpargeter - www.freepik.com&lt;/a&gt;   
+
+CAMIONES
+gracias a: Ralph (DE) = https://pixabay.com/es/users/capri23auto-1767157/  DE PIXABAY     
+                                                            CAMION ROJO         gracias a freephotos: https://pixabay.com/es/users/free-photos-242387/               DE PIXABAY</mutableString>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
@@ -817,6 +826,14 @@ CAMION
                                     <action selector="botonAyuda:" destination="nlh-Dc-upa" eventType="touchUpInside" id="KCq-3a-dHW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3Y-hg-Ku5">
+                                <rect key="frame" x="108" y="319" width="163" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="truck-3561413_1920.jpg"/>
+                                <connections>
+                                    <action selector="ContratarViaje0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eNB-Uc-Rij"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mgI-lZ-Awx"/>
@@ -842,5 +859,7 @@ CAMION
         <image name="nj.gif" width="180" height="41"/>
         <image name="palett.gif" width="94" height="80"/>
         <image name="pexels-riccardo-bresciani-salpicadero.jpg" width="5184" height="3456"/>
+        <image name="truck-3561413_1920.jpg" width="1920" height="1237"/>
+        <image name="truck2.jpg" width="1920" height="1280"/>
     </resources>
 </document>
