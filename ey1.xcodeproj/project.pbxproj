@@ -26,6 +26,7 @@
 		23BCB0512541DB0A0065BFFB /* ey1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB0502541DB0A0065BFFB /* ey1Tests.swift */; };
 		23BCB05C2541DB0A0065BFFB /* ey1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */; };
 		23C33A0F256C23C4006F29A8 /* ViewControllerAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */; };
+		23C59E7E25B626B0005DD0AD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C59E7D25B626B0005DD0AD /* Media.xcassets */; };
 		23D7542A25614F4500ED23D2 /* partida.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23D7542925614F4500ED23D2 /* partida.plist */; };
 		23F29135256AD72A00C75FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB03F2541DB0A0065BFFB /* ViewController.swift */; };
 		23FA2C57255B2EAF00F4737D /* ViewControllerGAMEOVER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */; };
@@ -74,6 +75,7 @@
 		23BCB05B2541DB0A0065BFFB /* ey1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ey1UITests.swift; sourceTree = "<group>"; };
 		23BCB05D2541DB0A0065BFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23C33A0E256C23C4006F29A8 /* ViewControllerAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAyuda.swift; sourceTree = "<group>"; };
+		23C59E7D25B626B0005DD0AD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		23D7542925614F4500ED23D2 /* partida.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = partida.plist; sourceTree = "<group>"; };
 		23FA2C56255B2EAF00F4737D /* ViewControllerGAMEOVER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGAMEOVER.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 		23BCB0312541DB0A0065BFFB = {
 			isa = PBXGroup;
 			children = (
+				23C59E7D25B626B0005DD0AD /* Media.xcassets */,
 				23F00F242545B38200322590 /* grf */,
 				23BCB03C2541DB0A0065BFFB /* ey1 */,
 				23BCB04F2541DB0A0065BFFB /* ey1Tests */,
@@ -290,6 +293,7 @@
 				2321DA7225B2E40D00BF7E6A /* Cj.gif in Resources */,
 				2321DA7525B2E40D00BF7E6A /* 3d-render-of-cargo-delivery-truck.jpg in Resources */,
 				2321DA8025B2EB5800BF7E6A /* truck2.jpg in Resources */,
+				23C59E7E25B626B0005DD0AD /* Media.xcassets in Resources */,
 				23BCB0462541DB0A0065BFFB /* LaunchScreen.storyboard in Resources */,
 				2321DA7C25B2E7FF00BF7E6A /* palett.gif in Resources */,
 				23B1F14C254413F000E49582 /* mini18.jpg in Resources */,
@@ -505,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ol1.ey1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ol1software.iotcamion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -523,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ol1.ey1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ol1software.iotcamion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

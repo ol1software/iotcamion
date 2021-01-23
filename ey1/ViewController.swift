@@ -577,7 +577,7 @@ class ViewController: UIViewController {
         ViewController.jugando = true // guardamos para esta sesión indicando que estamos jugando
         
         vnombrejugador = defaults.string(forKey: "nombrejugador") ?? "-"
-        popup_name(titulo: "Bienvenido al Juego iTradeCamion! WWW.OL1SOFTWARE.COM", solomensaje: true)
+        popup_name(titulo: "Bienvenido al Juego! Pulsa en 'AYUDA' para más info. **empieza haciendo click en 'CONTRATAR VIAJE' **después, ves haciendo click en 'VIAJAR' hasta el destino.  WWW.OL1SOFTWARE.COM", solomensaje: true)
         
         
         RellenaBD()
@@ -708,7 +708,7 @@ class ViewController: UIViewController {
             popup_name(titulo: "No puedes grabar la partida si estás en medio de un viaje.", solomensaje: true)
             return
         }
-        var c: String = defaults.string(forKey: "v.empresa")!
+        
         
         let alertController = UIAlertController(title: "iOTCamion", message: "¿Deseas guardar la partida?, esto sobreescribe la anterior !", preferredStyle: .alert)
         
